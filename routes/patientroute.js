@@ -4,7 +4,10 @@ const router = express.Router()
 
 
 router.post('/signup',patientroute.registerPatient)
-router.post('/login',patientroute.loginPatient)
-
+router.post('/signin',patientroute.loginPatient)
+router.put('/onboard1update',patientroute.onBoard1Patientupdate)
+router.post('/onboard2add',patientroute.onBoard2Patientadd)
+router.put('/addmedications',patientroute.addmedications)
+router.get('/getAllPatients',patientroute.getAllPatients)
 
 module.exports = router

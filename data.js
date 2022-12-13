@@ -12,7 +12,6 @@ Patient: {
             Weight: "83 Kgs";
             Emergency_contact:"+91-8993648428";
             Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022";
-
         }
         Medical: {
             Allergies: null;
@@ -20,7 +19,7 @@ Patient: {
             Currect_Medications: null;
             Chronic_Diseases: null;
             Injuries: null;
-            Surgeries: null;
+            Surgeries: null;  
         }
         Lifestyle:{
             Smoking: null;
@@ -74,7 +73,7 @@ Patient: {
         ]; 
     }
     Vitals:{
-        HearRate: {
+        HeartRate: {
             Latest_result: "80 BPM";
             Avg_result: "78 BPM";
             Status: "NORMAL";
@@ -119,109 +118,110 @@ Patient: {
             Avg_result: null;
             Status: "CONCERN";
         }
-
     }
     Lab_Reports: {
-        [
-                {
-                    Name: "COVID-19 Report",
-                    File_Name: null,
-                    Type: Diagnostic,
-                },
-                {
-                    Name: "Dengue Report",
-                    File_Name: null,
-                    Type: Diagnostic,
-                },
-                {
-                    Name: "CBC",
-                    File_Name: null,
-                    WBC: "5.7",
-                    RBC: "5.27",
-                    Haemoglobin: {
-                        Latest_result: "14",
-                        Avg_result: "13.37",
-                        Status: "NORMAL"
-                    },
-                    Haematocrit: "44.1",
-                    MCV: "84",
-                    MCHC: "34.9",
-                    RDW: "13.7",
-                    Platelets: "268",
-                    Neutrophils : "47",
-                    Lymphs: "46",
-                    Monocytes: "6",
-                    EOS: "1",
-                    Basos : "0"
-                },
-                {
-                    Name: "Basic Metabolic Panel",
-                    File_Name: null,
-                    Glucose: {
-                        Latest_result: "115",
-                        AbortSignal: "110",
-                        Status: "CONCERN",
-                    },
-                    UreaNitrogen: "16",
-                    Creatine: "0.99",
-                    Sodium: "132",
-                    Potassium: "4.8",
-                    Chlorine: "93",
-                    Carbon_Dioxide: "21",
-                    Calcium:"8.9",
-                },
-                {
-                    Name: "Comprehensive MP",
-                    File_Name: null,
-                    UreaNitrogen:{
-                        Latest_result: "16",
-                        Avg_result: "18",
-                        Status: "NORMAL",
-                    },
-                    Creatine: "0.99",
-                    Sodium: "132",
-                    Potassium: "4.8",
-                    Chlorine: "93",
-                    Carbon_Dioxide: "21",
-                    Calcium: "8.9",
-                    Protein: "7.6",
-                    Albumin: "4.7",
-                    Globulin: "2.9",
-                    AG_Ratio: "1.6",
-                    Bilirubin: "0.7",
-                    AlkalinePhosphate: "39L",
-                    AST: "43H",
-                    ALT: "88H",
-                },
-                {
-                    Name: "Thyroid Panel",
-                    File_Name: null,
-                    Thyroxine: {
-                        Latest_result: "7.2",
-                        Avg_result: "7.6",
-                        Status: "NORMAL"
-                    },
-                    T3Uptake: "28",
-                    FreeThyroxineIndex: "2.1",
-                    ThyroxineT4FreeDirect: "1.31",
-                    TSH: "2.680",
-                    TriiodothyronineFreeSerum: "2.9"
-                },
-                {
-                    Name: "Lipid Panel",
-                    File_Name: null,
-                    TotalCholesterol: {
-                        Latest_result: "244",
-                        Avg_result: "220",
-                        Status: "CONCERN"
-                    },
-                    Triglycerides: "242",
-                    HDLCholesterol: "48",
-                    LDLCholesterol: "148",
-                    LDLHDLRatio: "3",
-                    TotalCHOLHDL: "5",
-                }
-        ];
+        Diagnostic_Tests: {
+            Covid: {
+                Name: "COVID-19 Report";
+                File_Name: null;
+                Type: "Diagnostic";
+              };
+            Dengue: {
+                Name: "Dengue Report";
+                File_Name: null;
+                Type: "Diagnostic";
+            };
+        };
+        Blood_Tests: {
+            CBC: {
+                Name: "CBC";
+                File_Name: null;
+                WBC: "5.7";
+                RBC: "5.27";
+                Haemoglobin: {
+                    Latest_result: "14";
+                    Avg_result: "13.37";
+                    Status: "NORMAL";
+                };
+                Haematocrit: "44.1";
+                MCV: "84";
+                MCHC: "34.9";
+                RDW: "13.7";
+                Platelets: "268";
+                Neutrophils : "47";
+                Lymphs: "46";
+                Monocytes: "6";
+                EOS: "1";
+                Basos : "0";
+            };
+            BMP:{
+                Name: "Basic Metabolic Panel";
+                File_Name: null;
+                Glucose: {
+                    Latest_result: "115";
+                    AbortSignal: "110";
+                     Status: "CONCERN";
+                };
+                UreaNitrogen: "16";
+                Creatine: "0.99";
+                Sodium: "132";
+                Potassium: "4.8";
+                Chlorine: "93";
+                Carbon_Dioxide: "21";
+                Calcium:"8.9";
+            };
+            CMP: {
+                Name: "Comprehensive MP";
+                File_Name: null;
+                UreaNitrogen:{
+                    Latest_result: "16";
+                    Avg_result: "18";
+                   Status: "NORMAL";
+                };
+                Creatine: "0.99";
+                Sodium: "132";
+                Potassium: "4.8";
+                Chlorine: "93";
+                Carbon_Dioxide: "21";
+                Calcium: "8.9";
+                Protein: "7.6";
+                Albumin: "4.7";
+                Globulin: "2.9";
+                AG_Ratio: "1.6";
+                Bilirubin: "0.7";
+                AlkalinePhosphate: "39L";
+                AST: "43H";
+                ALT: "88H";
+            };
+            TP:{
+                Name: "Thyroid Panel";
+                File_Name: null;
+                Thyroxine: {
+                    Latest_result: "7.2";
+                    Avg_result: "7.6";
+                    Status: "NORMAL";
+                };
+                T3Uptake: "28";
+                FreeThyroxineIndex: "2.1";
+                ThyroxineT4FreeDirect: "1.31";
+                TSH: "2.680";
+                TriiodothyronineFreeSerum: "2.9";
+            };
+            LP: {
+                Name: "Lipid Panel";
+                File_Name: null;
+                TotalCholesterol: {
+                    Latest_result: "244";
+                    Avg_result: "220";
+                    Status: "CONCERN";
+                };
+                Triglycerides: "242";
+                HDLCholesterol: "48";
+                LDLCholesterol: "148";
+                LDLHDLRatio: "3";
+                TotalCHOLHDL: "5";
+            };
+        };
     }
     Medical_Device:{
         Fitbit:{
@@ -410,280 +410,280 @@ Patient: {
     }
 }
 
-Doctors: {
-    Name: "Dr. Nitin Dongri";
-    Degree: "M.B.B.S, MD";
-    Specs: "OPD Consultation";
-    Hospital: "City Hospital, Medical Hospital"
-}
+// Doctors: {
+//     Name: "Dr. Nitin Dongri";
+//     Degree: "M.B.B.S, MD";
+//     Specs: "OPD Consultation";
+//     Hospital: "City Hospital, Medical Hospital"
+// }
 
-MedicinesToBeSold: {
-    [
-        {
-            Name: "Ibuprofen 200mg",
-            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-            Contains: "Ibuprofen",
-            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-            SideEffects: "",
-            Uses: "",
-            Concerns: "",
-            Warnings: "",
-        },
-        {
-            Name: "Ibuprofen 200mg",
-            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-            Contains: "Ibuprofen",
-            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-            SideEffects: "",
-            Uses: "",
-            Concerns: "",
-            Warnings: "",
-        },
-        {
-            Name: "Ibuprofen 200mg",
-            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-            Contains: "Ibuprofen",
-            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-            SideEffects: "",
-            Uses: "",
-            Concerns: "",
-            Warnings: "",
-        },
-        {
-            Name: "Ibuprofen 200mg",
-            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-            Contains: "Ibuprofen",
-            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-            SideEffects: "",
-            Uses: "",
-            Concerns: "",
-            Warnings: "",
-        },
-        {
-            Name: "Ibuprofen 200mg",
-            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-            Contains: "Ibuprofen",
-            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-            SideEffects: "",
-            Uses: "",
-            Concerns: "",
-            Warnings: "",
-        },
-    ];
-}
+// MedicinesToBeSold: {
+//     [
+//         {
+//             Name: "Ibuprofen 200mg",
+//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+//             Contains: "Ibuprofen",
+//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+//             SideEffects: "",
+//             Uses: "",
+//             Concerns: "",
+//             Warnings: "",
+//         },
+//         {
+//             Name: "Ibuprofen 200mg",
+//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+//             Contains: "Ibuprofen",
+//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+//             SideEffects: "",
+//             Uses: "",
+//             Concerns: "",
+//             Warnings: "",
+//         },
+//         {
+//             Name: "Ibuprofen 200mg",
+//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+//             Contains: "Ibuprofen",
+//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+//             SideEffects: "",
+//             Uses: "",
+//             Concerns: "",
+//             Warnings: "",
+//         },
+//         {
+//             Name: "Ibuprofen 200mg",
+//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+//             Contains: "Ibuprofen",
+//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+//             SideEffects: "",
+//             Uses: "",
+//             Concerns: "",
+//             Warnings: "",
+//         },
+//         {
+//             Name: "Ibuprofen 200mg",
+//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+//             Contains: "Ibuprofen",
+//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+//             SideEffects: "",
+//             Uses: "",
+//             Concerns: "",
+//             Warnings: "",
+//         },
+//     ];
+// }
 
-Hospitals: {
-    [
-        {
-            Lat: "",
-            Lon: "",
-            Name: "City Hospitals",
-            Type: "OPD Consultation",
-            Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
-        },
-        {
-            Lat: "",
-            Lon: "",
-            Name: "City Hospitals",
-            Type: "OPD Consultation",
-            Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
-        },
-        {
-            Lat: "",
-            Lon: "",
-            Name: "City Hospitals",
-            Type: "OPD Consultation",
-            Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
-        },
-        {
-            Lat: "",
-            Lon: "",
-            Name: "City Hospitals",
-            Type: "OPD Consultation",
-            Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
-        },
-    ];
-}
+// Hospitals: {
+//     [
+//         {
+//             Lat: "",
+//             Lon: "",
+//             Name: "City Hospitals",
+//             Type: "OPD Consultation",
+//             Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
+//         },
+//         {
+//             Lat: "",
+//             Lon: "",
+//             Name: "City Hospitals",
+//             Type: "OPD Consultation",
+//             Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
+//         },
+//         {
+//             Lat: "",
+//             Lon: "",
+//             Name: "City Hospitals",
+//             Type: "OPD Consultation",
+//             Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
+//         },
+//         {
+//             Lat: "",
+//             Lon: "",
+//             Name: "City Hospitals",
+//             Type: "OPD Consultation",
+//             Address: "4/1, Tumkur Rd, Yeshwanthpur Industrial Area, Phase 1, Yeswanthpur, Bengaluru, Karnataka 560022"
+//         },
+//     ];
+// }
 
-PayementDetails: {
-    Category: "Online-in-app Payement";
-    SmartCard: "SFSKNL FEKN";
-    PayementMethod: "****1234";
-    Amount: "INR 4778";
-    Pay_date: "11/11/2022";
-    Pay_time: "12:47";
-}
+// PayementDetails: {
+//     Category: "Online-in-app Payement";
+//     SmartCard: "SFSKNL FEKN";
+//     PayementMethod: "****1234";
+//     Amount: "INR 4778";
+//     Pay_date: "11/11/2022";
+//     Pay_time: "12:47";
+// }
 
-Order_details:{
-    OrderID:"758619387409";
-    Cart:["Ibuprofen 200 MG Tablet"];
-    OrderDate: "10/09/2022"
-    OrderNumber: "87459370";
-    Total: "INR 332";
-    Patient_Details: {
-        Name:"Rahul Ranjan";
-        Age: 24;
-        Gender: "Male";
-        Contact_Number: "+91-9988263889";
-    }
-    Consultation_Fee: 369;
-    Coupon_Discount: 36.9;
-}
+// Order_details:{
+//     OrderID:"758619387409";
+//     Cart:["Ibuprofen 200 MG Tablet"];
+//     OrderDate: "10/09/2022"
+//     OrderNumber: "87459370";
+//     Total: "INR 332";
+//     Patient_Details: {
+//         Name:"Rahul Ranjan";
+//         Age: 24;
+//         Gender: "Male";
+//         Contact_Number: "+91-9988263889";
+//     }
+//     Consultation_Fee: 369;
+//     Coupon_Discount: 36.9;
+// }
 
-Delivery_details: {
-    DroneID: "2435EDD6787";
-    DeliveryDate: "10/09/2022";
-    DeliveryTime: "5:34 PM";
-    Destination: "///toddler.geologist.animated";
-}
+// Delivery_details: {
+//     DroneID: "2435EDD6787";
+//     DeliveryDate: "10/09/2022";
+//     DeliveryTime: "5:34 PM";
+//     Destination: "///toddler.geologist.animated";
+// }
 
-TrackOrder:{
-    OrderID: "758619387409";
-    Start:{
-        lat: null;
-        lon: null;
-    }
-    Finish:{
-        lat: null;
-        lon: null;
-    }
-    DroneID: "2435EDD6787";
-    ETA: "10";
-    ETAT: "5:34 PM";
-    Destination: "///toddler.geologist.animated";
-}
+// TrackOrder:{
+//     OrderID: "758619387409";
+//     Start:{
+//         lat: null;
+//         lon: null;
+//     }
+//     Finish:{
+//         lat: null;
+//         lon: null;
+//     }
+//     DroneID: "2435EDD6787";
+//     ETA: "10";
+//     ETAT: "5:34 PM";
+//     Destination: "///toddler.geologist.animated";
+// }
 
-FirstAid: {
-    [
-        {
-            Name: "AbdominalPain",
-            Solution: [
-                "Sit or lie down in a comfortable position.",
-                "Do not eat or drink anything",
-                "Do not take any painkillers.",
-                "Take an antacid, if earlier diagnosed with hyperacidity or stomach ulcers.",
-                "In case of associated breathlessness, chest pain, high fever , vomiting or continuous pain, rush to the hospital."
-            ]
-        },
-        {
-            Name: "Anigma(Chest Pain)",
-            Solution:[
+// FirstAid: {
+//     [
+//         {
+//             Name: "AbdominalPain",
+//             Solution: [
+//                 "Sit or lie down in a comfortable position.",
+//                 "Do not eat or drink anything",
+//                 "Do not take any painkillers.",
+//                 "Take an antacid, if earlier diagnosed with hyperacidity or stomach ulcers.",
+//                 "In case of associated breathlessness, chest pain, high fever , vomiting or continuous pain, rush to the hospital."
+//             ]
+//         },
+//         {
+//             Name: "Anigma(Chest Pain)",
+//             Solution:[
 
-            ]
-        },
-        {
-            Name: "Animal Bite",
-            Solution:[
+//             ]
+//         },
+//         {
+//             Name: "Animal Bite",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Asthma/Attack",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Asthma/Attack",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Bleeding",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Bleeding",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Burns",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Burns",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Choking",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Choking",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Convulsions",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Convulsions",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Diarrhea",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Diarrhea",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Electric Shock",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Electric Shock",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Eye Injury",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Eye Injury",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Fainting",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Fainting",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Fever",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Fever",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Head Injury",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Head Injury",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Nose Bleed",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Nose Bleed",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Poisoning",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Poisoning",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Snake Bite",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Snake Bite",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Sprain/Strain",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Sprain/Strain",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Stroke",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Stroke",
+//             Solution:[
 
-            ],
-        },
-        {
-            Name: "Vomiting",
-            Solution:[
+//             ],
+//         },
+//         {
+//             Name: "Vomiting",
+//             Solution:[
 
-            ],
-        },
+//             ],
+//         },
 
-    ];
-}
+//     ];
+// }

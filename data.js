@@ -113,11 +113,6 @@ Patient: {
             Avg_result: null;
             Status: "NORMAL";
         }
-        Blood_Pressure:{
-            Latest_result: null;
-            Avg_result: null;
-            Status: "CONCERN";
-        }
     }
     Lab_Reports: {
         Diagnostic_Tests: {

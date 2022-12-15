@@ -117,10 +117,10 @@ const HeartRateSchema = mongoose.Schema({
 
 const BloodPressureSchema = mongoose.Schema({
     Latest_result: {
-        type: Number,
+        type: String,
     },
     Avg_result:{
-        type: Number,
+        type: String,
     },
     Status:{
         type: String,
@@ -188,18 +188,6 @@ const GlucoseSchema = mongoose.Schema({
 })
 
 const ThyroidSchema = mongoose.Schema({
-    Latest_result: {
-        type: Number,
-    },
-    Avg_result:{
-        type: Number,
-    },
-    Status:{
-        type: String,
-    }
-})
-
-const Blood_PressureSchema= mongoose.Schema({
     Latest_result: {
         type: Number,
     },
@@ -470,19 +458,19 @@ const FitBitSchema = mongoose.Schema({
         type: Number,
     },
     Distance: {
-        type: Number,
+        type: String,
     },
     Calories: {
         type: Number,
     },
     FatBurn: {
-        type: Number,
+        type: String,
     },
     Cardio: {
-        type: Number,
+        type: String,
     },
     Peak: {
-        type: Number,
+        type: String,
     },
 })
 
@@ -508,14 +496,15 @@ const patientmongoschema = mongoose.Schema({
     Profile: ProfilePatientSchema,
     Ongoing_Treatment: {
         type: String,
+        default: "N.A"
     },
     Treatment_Plan: {
         type: String,
+        default: "N.A",
     },
     Medications: [{
         Name: {
             type: String,
-            unique: false,
         },
         Start_Date:{
             type: String,
@@ -534,7 +523,6 @@ const patientmongoschema = mongoose.Schema({
         Haemoglobin: HaemoglobinSchema,
         Glucose: GlucoseSchema,
         Thyroid: ThyroidSchema,
-        Blood_Pressure: Blood_PressureSchema,
     },
     Lab_Reports: {
         Diagnostic_Test: DiagnosticTestsSchema, 
@@ -546,6 +534,7 @@ const patientmongoschema = mongoose.Schema({
     },
     Wallet_Balance: {
         type: Number,
+        default: "0",
     },
     Issues: [{
         Status:{

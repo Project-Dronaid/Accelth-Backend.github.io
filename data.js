@@ -26,6 +26,7 @@ Patient: {
             Alcohol: null;
             Activity: null;
             Food_Preference: null;
+            Vaccination: null;
         }
     }
     Ongoing_Treatment: "COVID";
@@ -119,12 +120,10 @@ Patient: {
             Covid: {
                 Name: "COVID-19 Report";
                 File_Name: null;
-                Type: "Diagnostic";
               };
             Dengue: {
                 Name: "Dengue Report";
                 File_Name: null;
-                Type: "Diagnostic";
             };
         };
         Blood_Tests: {
@@ -154,7 +153,7 @@ Patient: {
                 File_Name: null;
                 Glucose: {
                     Latest_result: "115";
-                    AbortSignal: "110";
+                    Avg_result: "110";
                      Status: "CONCERN";
                 };
                 UreaNitrogen: "16";
@@ -377,27 +376,27 @@ Patient: {
                 Time: "5:30 AM",
             },
             {
-                OrderID:"758619387409",
+                OrderID:"758619387410",
                 Date: "12/11/2022",
                 Time: "5:30 AM",
             },
             {
-                OrderID:"758619387409",
+                OrderID:"758619387411",
                 Date: "12/11/2022",
                 Time: "5:30 AM",
             },
             {
-                OrderID:"758619387409",
+                OrderID:"758619387412",
                 Date: "12/11/2022",
                 Time: "5:30 AM",
             },
             {
-                OrderID:"758619387409",
+                OrderID:"758619387413",
                 Date: "12/11/2022",
                 Time: "5:30 AM",
             },
             {
-                OrderID:"758619387409",
+                OrderID:"758619387414",
                 Date: "12/11/2022",
                 Time: "5:30 AM",
             },

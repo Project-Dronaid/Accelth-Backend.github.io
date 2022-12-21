@@ -41,7 +41,7 @@ const PersonalProfileSchema = mongoose.Schema({
         type: Number,
     },
     Emergency_contact:{
-        type: Number,
+        type: String,
     },
     Address: {
         type: String,
@@ -242,9 +242,6 @@ const CovidReportSchema = mongoose.Schema({
     File_Name: {
         type: String,
     },
-    Type: {
-        type: String,
-    }
 })
 
 const DengueSchema = mongoose.Schema({
@@ -254,9 +251,6 @@ const DengueSchema = mongoose.Schema({
     File_Name: {
         type: String,
     },
-    Type: {
-        type: String,
-    }
 })
 
 const CBCSchema = mongoose.Schema({
@@ -447,10 +441,10 @@ const DiagnosticTestsSchema = mongoose.Schema({
 })
 const BloodTestSchema = mongoose.Schema({
     CBC: CBCSchema,
-    BMP: Basic_Metabolic_PanelSchema,
-    CMP: Comprehensive_MPschema,
-    TP: ThyroidPanelSchema,
-    LP: LipidPanelSchema,
+    Basic_Metabolic_Panel: Basic_Metabolic_PanelSchema,
+    Comprehensive_Metabolic_Panel: Comprehensive_MPschema,
+    ThyroidPanel:ThyroidPanelSchema,
+    LipidPanel: LipidPanelSchema,
 })
 
 const FitBitSchema = mongoose.Schema({
@@ -485,10 +479,10 @@ const GlucometerSchema= mongoose.Schema({
 
 const RecoverySchema = mongoose.Schema({
     Expected: {
-        type: Number,
+        type: String,
     },
     Actual: {
-        type: Number,
+        type: String,
     }
 })
 
@@ -536,7 +530,8 @@ const patientmongoschema = mongoose.Schema({
         type: Number,
         default: "0",
     },
-    Issues: [{
+    Issues: [
+        {
         Status:{
             type: String,
         },
@@ -606,6 +601,7 @@ const patientmongoschema = mongoose.Schema({
     Orders:[{
             OrderID: {
                 type: String,
+                unique: true,
             },
             Date: {
                     type: String,

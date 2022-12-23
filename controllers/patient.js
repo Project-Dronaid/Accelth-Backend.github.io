@@ -115,8 +115,6 @@ const updatePatientProfileLifestyle = async (req, res) => {
     })).catch((error)=>res.status(400).json(error.message))
 }
 
-
-
 const onBoard1Patientupdate = async (req, res) => {
     const{DateofBirth,Gender,Bloodgroup,Height,Weight}=req.body
     const{Email_id}= req.params
@@ -190,6 +188,32 @@ const addmedications = async (req, res) => {
      },{upsert:true}).then(patient=>
         res.status(200).json({
             message: "Medications added",
+            medication: patient,
+        })).catch((error)=>res.status(400).json({
+            message: error.message,
+        })) 
+
+}
+
+const adddoctors = async (req, res) => {
+    const {Name,Degree,Specs,Hospital,PhotoUrl} = req.body
+    const {Email_id} = req.params;
+     await Patient.patient.updateOne({
+        "Profile.Personal.Email_id":  Email_id,
+     },
+        {
+            $push : {
+                Doctors: {
+                    Name: Name,
+                    Degree:Degree,
+                    Specs:Specs,
+                    Hospital:Hospital,
+                    PhotoUrl:PhotoUrl
+                }
+            }
+     },{upsert:true}).then(patient=>
+        res.status(200).json({
+            message: "Doctor added",
             medication: patient,
         })).catch((error)=>res.status(400).json({
             message: error.message,
@@ -307,7 +331,6 @@ const getAllPatients = async (req, res) => {
         res.status(400).json(error.message)
     }
 }
-
 
 const addHeartRateInfo = async (req, res) => {
     const{Latest_result,Avg_result,Status}= req.body
@@ -694,7 +717,6 @@ const addCMPReport = async (req, res) => {
     }).catch((error)=> res.status(400).json(error.message))
 }
 
-
 const addTPReport = async (req, res) => {
     const{Name,File_Name,Latest_result,Avg_result,Status,T3Uptake,FreeThyroxineIndex,ThyroxineT4FreeDirect,
     TSH,TriiodothyronineFreeSerum} = req.body
@@ -743,7 +765,6 @@ const addLPReport = async (req, res) => {
         })
     }).catch((error)=> res.status(400).json(error.message))
 }
-
 
 const getasinglepatient = async (req, res) => {
     const{Email_id}= req.params
@@ -825,3 +846,4 @@ module.exports.addLifestyle = addLifestyle
 module.exports.updatePatientProfilePersonal = updatePatientProfilePersonal
 module.exports.updatePatientProfileMedical= updatePatientProfileMedical
 module.exports.updatePatientProfileLifestyle =updatePatientProfileLifestyle
+module.exports.adddoctors=adddoctors

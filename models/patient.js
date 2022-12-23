@@ -508,6 +508,24 @@ const patientmongoschema = mongoose.Schema({
         },
         Meal_Plan: MealPlanMedicationSchema
     }],
+    Doctors:[{
+        Name:{
+            type: String,
+        },
+        Degree: {
+            type: String,
+        },
+        Specs:{
+            type: String,
+        },
+        Hospital:{
+            type: String,
+        },
+        PhotoUrl:{
+            type: String,
+            default: 'https://img.freepik.com/premium-vector/front-portraits-young-doctors-character-avatars-illustration-graphic-design-animation_635702-196.jpg?w=1380'
+        }
+    }],
     Vitals: {
         HeartRate: HeartRateSchema,
         BloodPressure: BloodPressureSchema,

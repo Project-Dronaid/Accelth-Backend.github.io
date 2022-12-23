@@ -402,14 +402,59 @@ Patient: {
             },
         ];
     }
+    Doctors:{
+        [
+            {
+                "Name": "Dr. Nitin Dongri",
+                "Degree": "M.B.B.S, MD",
+                "Specs": "OPD Consultation",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Achwal Suvarna",
+                "Degree": "M.B.B.S, DGO",
+                "Specs": "Gynaecologist",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Agarwal Priyank",
+                "Degree": "M.B.B.S,MS(Ortho)",
+                "Specs": "Orthopaedic Surgeon",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Aggarwal Supriya",
+                "Degree": "M.B.B.S,DLO",
+                "Specs": "ENT Surgeon",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Agnihotri Basant Kumar",
+                "Degree": "M.B.B.S,MD(Paediatrics)",
+                "Specs": "Paediatrician",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Agrawal Arun Kumar",
+                "Degree": "M.B.B.S,MS (Ophthalmology)",
+                "Specs": "Ophthalmologist",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Agrawal Ashutosh",
+                "Degree": "M.B.B.S,MS DMRD",
+                "Specs": "Radiologist",
+                "Hospital": "City Hospital, Medical Hospital"
+            },
+            {
+                "Name": "Dr. Asati Pranav",
+                "Degree": "BDS, MDS (Oral & Maxillofacial Surgery)",
+                "Specs": "Dental Surgeon",
+                "Hospital": "City Hospital, Medical Hospital"
+            }
+        ]
+    }
 }
-
-// Doctors: {
-//     Name: "Dr. Nitin Dongri";
-//     Degree: "M.B.B.S, MD";
-//     Specs: "OPD Consultation";
-//     Hospital: "City Hospital, Medical Hospital"
-// }
 
 // MedicinesToBeSold: {
 //     [

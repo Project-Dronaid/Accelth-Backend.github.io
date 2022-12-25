@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs')
 // const {GridFsStorage} = require("multer-gridfs-storage");
 
 const registerPatient = async (req, res)=> {
-    const{Name,Contact_Number,Email_id,Password} = req.body
-    if(Password.length < 8){
+    const{Name,Contact_Number,Email_id,Password,DateofBirth,Gender,Bloodgroup,Height,Weight,Allergies,Blindcondition} = req.body
+    if(Password.length <= 8){
         return res.status(400).json({
             message: "Password must be atleast 8 characters long"
         })
@@ -18,6 +18,15 @@ const registerPatient = async (req, res)=> {
                     Contact_Number: Contact_Number,
                     Email_id : Email_id,
                     Password: hash,
+                    Gender:  Gender,
+                    Bloodgroup:Bloodgroup,
+                    Height:  Height,
+                    Weight:  Weight,
+                    DateofBirth:  DateofBirth,
+                },
+                Medical:{
+                    Allergies: Allergies,
+                    Blindcondition:Blindcondition,
                 }
             },
         }).then(Patient=>
@@ -115,56 +124,56 @@ const updatePatientProfileLifestyle = async (req, res) => {
     })).catch((error)=>res.status(400).json(error.message))
 }
 
-const onBoard1Patientupdate = async (req, res) => {
-    const{DateofBirth,Gender,Bloodgroup,Height,Weight}=req.body
-    const{Email_id}= req.params
-    await Patient.patient.updateOne(
-            { 
-                "Profile.Personal.Email_id":  Email_id
-            },
-        { 
-            "Profile.Personal.Gender":  Gender,
-            "Profile.Personal.Bloodgroup":Bloodgroup,
-            "Profile.Personal.Height":  Height,
-            "Profile.Personal.Weight":  Weight,
-            "Profile.Personal.DateofBirth":  DateofBirth,
-        },
-        {upsert:true}
-          ).then(patient=>
-            res.status(200).json({
-                message:"Patient's data updated",
-                patient: patient,
-            })
-            ).catch((error)=>res.status(400).json({
-                message : error.message
-            })
-        )
-}
+// const onBoard1Patientupdate = async (req, res) => {
+//     const{DateofBirth,Gender,Bloodgroup,Height,Weight}=req.body
+//     const{Email_id}= req.params
+//     await Patient.patient.updateOne(
+//             { 
+//                 "Profile.Personal.Email_id":  Email_id
+//             },
+//         { 
+//             "Profile.Personal.Gender":  Gender,
+//             "Profile.Personal.Bloodgroup":Bloodgroup,
+//             "Profile.Personal.Height":  Height,
+//             "Profile.Personal.Weight":  Weight,
+//             "Profile.Personal.DateofBirth":  DateofBirth,
+//         },
+//         {upsert:true}
+//           ).then(patient=>
+//             res.status(200).json({
+//                 message:"Patient's data updated",
+//                 patient: patient,
+//             })
+//             ).catch((error)=>res.status(400).json({
+//                 message : error.message
+//             })
+//         )
+// }
 
-const onBoard2Patientadd = async (req, res) => {
-    const{Allergies,Blindcondition} = req.body
-    const{Email_id}= req.params
-    await Patient.patient.updateOne(
-        {
-            "Profile.Personal.Email_id":  Email_id
-        },
-        { 
-            "Profile.Medical.Allergies": Allergies,
-            "Profile.Medical.Blindcondition" : Blindcondition,
-        },
-        {
-            upsert:true
-        },
-      ).then(patient=>
-        res.status(200).json({
-            message:"Patient's data updated",
-            patient: patient,
-        })
-        ).catch((error)=>res.status(400).json({
-            message : error.message
-        })
-    )
-}
+// const onBoard2Patientadd = async (req, res) => {
+//     const{Allergies,Blindcondition} = req.body
+//     const{Email_id}= req.params
+//     await Patient.patient.updateOne(
+//         {
+//             "Profile.Personal.Email_id":  Email_id
+//         },
+//         { 
+//             "Profile.Medical.Allergies": Allergies,
+//             "Profile.Medical.Blindcondition" : Blindcondition,
+//         },
+//         {
+//             upsert:true
+//         },
+//       ).then(patient=>
+//         res.status(200).json({
+//             message:"Patient's data updated",
+//             patient: patient,
+//         })
+//         ).catch((error)=>res.status(400).json({
+//             message : error.message
+//         })
+//     )
+// }
 
 const addmedications = async (req, res) => {
     const {Name,Start_Date,End_Date,Dose1,Dose2,Dose3} = req.body
@@ -814,8 +823,8 @@ const addLifestyle = async (req, res) => {
 
 module.exports.registerPatient = registerPatient
 module.exports.loginPatient = loginPatient
-module.exports.onBoard1Patientupdate = onBoard1Patientupdate
-module.exports.onBoard2Patientadd = onBoard2Patientadd
+// module.exports.onBoard1Patientupdate = onBoard1Patientupdate
+// module.exports.onBoard2Patientadd = onBoard2Patientadd
 module.exports.addmedications = addmedications
 module.exports.getAllPatients = getAllPatients
 module.exports.addHeartRateInfo = addHeartRateInfo

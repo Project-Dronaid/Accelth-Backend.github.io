@@ -35,10 +35,10 @@ const PersonalProfileSchema = mongoose.Schema({
         default: "Not Defined"
     },
     Height: {
-        type: Number,
+        type: String,
     },
     Weight:{
-        type: Number,
+        type: String,
     },
     Emergency_contact:{
         type: String,

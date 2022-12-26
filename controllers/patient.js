@@ -782,7 +782,7 @@ const getasinglepatient = async (req, res) => {
     })
     if(!patient){
         res.status(400).json({
-            Message:"Searchin not successful",
+            Message:"Searching not successful",
             Error:"Patient not found"
         })
     }else{

@@ -1,5 +1,7 @@
 const Patient = require('../models/patient')
 const bcrypt = require('bcryptjs')
+const { GridFsStorage } = require('multer-gridfs-storage')
+
 // const multer = require("multer");
 // const {GridFsStorage} = require("multer-gridfs-storage");
 
@@ -816,6 +818,7 @@ const addLifestyle = async (req, res) => {
         })
     )
 }
+
 
 
 

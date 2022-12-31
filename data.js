@@ -456,65 +456,65 @@ Patient: {
     }
 }
 
-// MedicinesToBeSold: {
-//     [
-//         {
-//             Name: "Ibuprofen 200mg",
-//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-//             Contains: "Ibuprofen",
-//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-//             SideEffects: "",
-//             Uses: "",
-//             Concerns: "",
-//             Warnings: "",
-//         },
-//         {
-//             Name: "Ibuprofen 200mg",
-//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-//             Contains: "Ibuprofen",
-//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-//             SideEffects: "",
-//             Uses: "",
-//             Concerns: "",
-//             Warnings: "",
-//         },
-//         {
-//             Name: "Ibuprofen 200mg",
-//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-//             Contains: "Ibuprofen",
-//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-//             SideEffects: "",
-//             Uses: "",
-//             Concerns: "",
-//             Warnings: "",
-//         },
-//         {
-//             Name: "Ibuprofen 200mg",
-//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-//             Contains: "Ibuprofen",
-//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-//             SideEffects: "",
-//             Uses: "",
-//             Concerns: "",
-//             Warnings: "",
-//         },
-//         {
-//             Name: "Ibuprofen 200mg",
-//             Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
-//             Contains: "Ibuprofen",
-//             Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
-//             Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
-//             SideEffects: "",
-//             Uses: "",
-//             Concerns: "",
-//             Warnings: "",
-//         },
-//     ];
-// }
+MedicinesToBeSold: {
+    [
+        {
+            Name: "Ibuprofen 200mg",
+            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+            Contains: "Ibuprofen",
+            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+            SideEffects: "",
+            Uses: "",
+            Concerns: "",
+            Warnings: "",
+        },
+        {
+            Name: "Ibuprofen 200mg",
+            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+            Contains: "Ibuprofen",
+            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+            SideEffects: "",
+            Uses: "",
+            Concerns: "",
+            Warnings: "", 
+        },
+        {
+            Name: "Ibuprofen 200mg",
+            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+            Contains: "Ibuprofen",
+            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+            SideEffects: "",
+            Uses: "",
+            Concerns: "",
+            Warnings: "",
+        },
+        {
+            Name: "Ibuprofen 200mg",
+            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+            Contains: "Ibuprofen",
+            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+            SideEffects: "",
+            Uses: "",
+            Concerns: "",
+            Warnings: "",
+        },
+        {
+            Name: "Ibuprofen 200mg",
+            Manufacture: "Jagsonpal Pharmaceuticals Ltd.",
+            Contains: "Ibuprofen",
+            Description: "Ibuprofen (Jagsonpal) 200 MG Tablet is a non-steroidal anti-inflammatory medicine, which is used to relieve pain associated with osteoarthritis, rheumatoid arthritis, menstrual cramps (dysmenorrhea), muscle aches, headache, back pain, dental pain, etc. It is also used to treat mild-to-moderate fever. Do not take this medicine if you have any bleeding disorder or asthma or a known allergy to this medicine. This medicine is not recommended for use children below 12 years of age.",
+            Substitutes: ["Ibugesic 200 MG Tablet", "Cipla Ltd.", "Ibuprofen (Cadilla) 200 MG Tablet", "Cadilla Pharmaceuticals Ltd.", "Ibutas 200 MG Tablet", "Intas Pharmaceuticals Ltd.", "Sugafen 200 MG Tablet"],
+            SideEffects: "",
+            Uses: "",
+            Concerns: "",
+            Warnings: "",
+        },
+    ];
+}
 
 // Hospitals: {
 //     [

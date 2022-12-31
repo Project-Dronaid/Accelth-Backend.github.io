@@ -61,7 +61,22 @@ const deleteMedicines = async(req,res)=>{
     await MedItem.medItems.deleteOne({ItemID:ItemID}).then(meditem=>res.status(200).json(meditem)).catch((error)=>res.status(400).json(error.message))
 }
 
+const getasingleMedicine = async(req,res)=>{
+    const{ItemID}=req.params
+
+    try{
+        const medicine = await MedItem.medItems.findOne({
+            ItemID:ItemID,
+        })
+        res.status(200).json(medicine)
+    }catch(error){
+        res.status(400).json(error.message)
+    }
+}
+
+
 module.exports.addMedicalItem = addMedicalItem
 module.exports.addSubstitutes = addSubstitutes
 module.exports.getMedicines = getMedicines
 module.exports.deleteMedicines = deleteMedicines
+module.exports.getasingleMedicine = getasingleMedicine

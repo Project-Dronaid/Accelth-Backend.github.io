@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const hostname = '0.0.0.0'
 const connectDB = require('./config/db')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')

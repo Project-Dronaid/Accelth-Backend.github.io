@@ -1,9 +1,56 @@
 const Patient = require('../models/patient')
 const bcrypt = require('bcryptjs')
 const { GridFsStorage } = require('multer-gridfs-storage')
+const { addSubstitutes } = require('./items')
+const otpGenerator = require('otp-generator')
+const crypto = require('crypto')
+const { param } = require('../routes/patientroute')
+const exp = require('constants')
 
 // const multer = require("multer");
 // const {GridFsStorage} = require("multer-gridfs-storage");
+
+const changePassword = async(req,res)=>{
+    const{Email_id,Password}=req.body
+    if(Password.length <= 8){
+        return res.status(400).json({
+            message: "Password must be atleast 8 characters long"
+        })
+    }
+    bcrypt.hash(Password,10).then(async(hash)=>{
+        try{
+            const patient = await Patient.patient.findOne({
+                "Profile.Personal.Email_id":  Email_id
+            })
+            bcrypt.compare(Password,patient.Profile.Personal.Password).then(function (result) {
+                if(result)
+                return res.status(200).json({
+                    data: "Same as old password"
+                });
+            });
+        }catch(error){
+            res.status(400).json({
+                Message:"An error occured",
+                Error:error.message
+            })
+        }
+        await Patient.patient.updateOne({
+            "Profile.Personal.Email_id":  Email_id
+        },{
+            "Profile.Personal.Password":  hash,
+        }).then(Patient=>
+            res.status(200).json({
+                Message:"Password changed successfully",
+                Patient: Patient,
+            })
+            ).catch((error)=>res.status(400).json({
+                Message : error.message
+            })
+        )
+    });
+
+
+}
 
 const registerPatient = async (req, res)=> {
     const{Name,Contact_Number,Email_id,Password,DateofBirth,Gender,Bloodgroup,Height,Weight,Allergies,Blindcondition} = req.body
@@ -819,11 +866,86 @@ const addLifestyle = async (req, res) => {
     )
 }
 
+const key = 'otp-secret-key'
+
+async function createOTP(params,callback){
+    const otp = otpGenerator.generate(6,{
+        upperCaseAlphabets:false,
+        lowerCaseAlphabets:false,
+        specialChars: false,
+    })
+    const ttl = 5*60*1000
+    const expires = Date.now() + ttl
+    const data1 = `${params.Contact_Number}.${otp}.${expires}`
+    const hash  = crypto.createHmac("sha256",key).update(data1).digest("hex")
+    const fullhash = `${hash}.${expires}`
+    console.log(`Your OTP is ${otp}`)
+    //SEND SMS
+
+    return callback(null,fullhash)
+}
+
+async function verifyOTP(params,callback){
+    let [hashValue,expires] = params.hash.split('.')
+    let now = Date.now()
+    if(now>parseInt(expires)) return callback("OTP Expired")
+    let data2 = `${params.Contact_Number}.${params.otp}.${expires}`
+    let newCalculateHash = crypto.createHmac("sha256",key).update(data2).digest("hex")
+    if(newCalculateHash === hashValue)
+    return callback(null,"Success")
+    return callback("Invalid OTP")
+}
+
+const sendOTP = async (req,res,next)=>{
+    const{Email_id} = req.params
+    try{
+        const patient = await Patient.patient.findOne({
+            "Profile.Personal.Email_id": Email_id
+        })
+        otpData = {
+            "Contact_Number": patient.Profile.Personal.Contact_Number,
+        }
+        createOTP(otpData,(error,results)=>{
+            if(error) return next(error)
+            return res.status(200).send({
+                message: "Success",
+                data: results
+            })
+        })
+    }catch(error){
+        res.status(400).json(error)
+    }
+}
+
+const verifyOtp = async(req,res,next)=>{
+    const{Email_id} = req.params
+    const{OTP,Hash}=req.body
+    try{
+        const patient = await Patient.patient.findOne({
+            "Profile.Personal.Email_id": Email_id
+        })
+        otpData = {
+            "Contact_Number": patient.Profile.Personal.Contact_Number,
+            "otp":OTP,
+            "hash":Hash,
+        }
+        verifyOTP(otpData,(error,results)=>{
+            if(error) return next(error)
+            return res.status(200).send({
+                message: "Success",
+                data: results
+            })
+        })
+    }catch(error){
+        res.status(400).json(error)
+    }
+} 
 
 
 
-
-
+module.exports.changePassword = changePassword
+module.exports.verifyOtp = verifyOtp
+module.exports.sendOTP = sendOTP
 module.exports.registerPatient = registerPatient
 module.exports.loginPatient = loginPatient
 // module.exports.onBoard1Patientupdate = onBoard1Patientupdate

@@ -3,9 +3,12 @@ const express = require('express')
 const router = express.Router()
 
 
+router.post('/sendOTP/:Email_id',patientroute.sendOTP)
+router.post('/verifyOtp/:Email_id',patientroute.verifyOtp)
 router.get('/getAllPatients',patientroute.getAllPatients)
 router.post('/signup',patientroute.registerPatient)
 router.post('/signin',patientroute.loginPatient)
+router.post('/changePassword',patientroute.changePassword)
 // router.put('/onboard1update/:Email_id',patientroute.onBoard1Patientupdate)
 // router.post('/onboard2add/:Email_id',patientroute.onBoard2Patientadd)
 router.post('/addLifestyle/:Email_id',patientroute.addLifestyle)

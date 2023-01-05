@@ -42,12 +42,26 @@ const storage = new GridFsStorage({
 })
 const upload = multer({storage:storage})
 
-router.post('/upload/:Email_id',upload.single('file'),async (req,res)=>{
+router.post('/upload/covid/:Email_id',upload.single('file'),async (req,res)=>{
     const fileName = req.file.filename
     await Patient.patient.updateOne({
         "Profile.Personal.Email_id":  req.params.Email_id,
     },{
         "Lab_Reports.Diagnostic_Test.Covid.File_Name": fileName
+    },{upsert:true}).then(patient=>{
+        res.status(200).json({
+            file: req.file,
+            patient:patient,
+        })
+    }).catch((err)=>res.status(400).json(err))
+})
+
+router.post('/upload/imaging/:Email_id',upload.single('file'),async (req,res)=>{
+    const fileName = req.file.filename
+    await Patient.patient.updateOne({
+        "Profile.Personal.Email_id":  req.params.Email_id,
+    },{
+        "Imaging.Filename": fileName
     },{upsert:true}).then(patient=>{
         res.status(200).json({
             file: req.file,
@@ -87,7 +101,7 @@ router.get('/files/:filename',(req,res)=>{
     })
 })
 
-router.get('/image/:filename',(req,res)=>{
+router.get('/fileshow/:filename',(req,res)=>{
     gfs.find({filename:req.params.filename}).toArray((err,files)=>{
         if(!files[0]||files.length==0){
             return res.status(200).json({

@@ -628,7 +628,7 @@ const patientmongoschema = mongoose.Schema({
                 type: String,
             },
             CartItems: [{
-                Name: {
+                MedName: {
                     type: String,
                 },
                 Quantity:{
@@ -642,7 +642,15 @@ const patientmongoschema = mongoose.Schema({
             DeliveredDate: String,
             DeliveredTime: String,
             Status: String,
-        }]
+        }],
+      Imaging: {
+        Name: String,
+        Date: String,
+        Time: String,
+        Doctor: String,
+        Hospital: String,
+        Filename: String,
+      }  
 })
 
 

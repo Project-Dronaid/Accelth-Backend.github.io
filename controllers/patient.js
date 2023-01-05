@@ -360,7 +360,8 @@ const addHospitalization = async (req, res) => {
 }
 
 const OrderPlace = async (req, res) => {
-    const{OrderID,Date,Time}= req.body
+    const{OrderID,Date,Time,MedName1,Quantity1,MedName2,Quantity2,MedName3,Quantity3,InvoiceFilename,TotalAmount,Address,DroneID,
+    DeliveredDate,DeliveredTime,Status}= req.body
     const{Email_id}= req.params
     await Patient.patient.updateOne({
         "Profile.Personal.Email_id":  Email_id,
@@ -370,6 +371,27 @@ const OrderPlace = async (req, res) => {
                 OrderID: OrderID,
                 Date: Date,
                 Time: Time,
+                CartItems:[
+                    {
+                       MedName:MedName1,
+                       Quantity:Quantity1
+                    },
+                    {
+                        MedName:MedName2,
+                        Quantity:Quantity2
+                    },
+                    {
+                        MedName: MedName3,
+                        Quantity: Quantity3,
+                    }
+               ],
+                InvoiceFilename: InvoiceFilename,
+                TotalAmount: TotalAmount,
+                Address: Address,
+                DroneID: DroneID,
+                DeliveredDate: DeliveredDate,
+                DeliveredTime: DeliveredTime,
+                Status: Status,
             }
         }
     },{upsert:true}
@@ -941,8 +963,29 @@ const verifyOtp = async(req,res,next)=>{
     }
 } 
 
+const addImaging = async(req,res)=>{
+    const{Email_id}=req.params
+    const{Name,Date,Time,Doctor,Hospital} = req.body
+    await Patient.patient.updateOne({
+        "Profile.Personal.Email_id": Email_id,
+    },{
+        Imaging: {
+            Name: Name,
+            Date: Date,
+            Time: Time,
+            Doctor: Doctor,
+            Hospital: Hospital
+          } 
+    },{upsert:true}).then(patient=>res.status(200).json({
+        patient:patient,
+        message: "Imaging data added"
+    })).catch((error)=>res.status(400).json({
+        error:error
+    }))
+}
 
 
+module.exports.addImaging = addImaging
 module.exports.changePassword = changePassword
 module.exports.verifyOtp = verifyOtp
 module.exports.sendOTP = sendOTP

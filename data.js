@@ -580,6 +580,13 @@ Patient: {
             }
         ]
     }
+    Imaging:{
+        Name: "CT Scan";
+        Date: "10 October 2022";
+        Time: "12:56 PM";
+        Doctor: "Dr. Nitin Dongri";
+        Hospital: "City Hospital, Delhi"; 
+    }
 }
 
 MedicinesToBeSold: {

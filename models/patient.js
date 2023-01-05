@@ -627,6 +627,21 @@ const patientmongoschema = mongoose.Schema({
             Time: {
                 type: String,
             },
+            CartItems: [{
+                Name: {
+                    type: String,
+                },
+                Quantity:{
+                    type: Number,
+                }
+            }],
+            InvoiceFilename: String,
+            TotalAmount: Number,
+            Address: String,
+            DroneID: String,
+            DeliveredDate: String,
+            DeliveredTime: String,
+            Status: String,
         }]
 })
 

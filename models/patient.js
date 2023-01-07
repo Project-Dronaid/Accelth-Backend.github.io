@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-
-
 const PersonalProfileSchema = mongoose.Schema({
     Name:{
         type: String,
@@ -486,6 +484,42 @@ const RecoverySchema = mongoose.Schema({
     }
 })
 
+const appointmentSchema = mongoose.Schema({
+    AppointmentID:{
+        type: String,
+    },
+    DoctorID:{
+        type: String,
+    },
+    PatientID:{
+        type: String,
+    },
+    Date:{
+        type: String,
+    },
+    Time:{
+        type: String,
+    },
+    AppointmentType:{
+        type: String,
+    },
+    Name:{
+        type: String,
+    },
+    Age:{
+        type: String,
+    },
+    Gender:{
+        type: String,
+    },
+    Issue:{
+        type: String,
+    },
+    Status:{
+        type: String,
+    },
+})
+
 const patientmongoschema = mongoose.Schema({
     Profile: ProfilePatientSchema,
     Ongoing_Treatment: {
@@ -507,24 +541,6 @@ const patientmongoschema = mongoose.Schema({
             type: String,
         },
         Meal_Plan: MealPlanMedicationSchema
-    }],
-    Doctors:[{
-        Name:{
-            type: String,
-        },
-        Degree: {
-            type: String,
-        },
-        Specs:{
-            type: String,
-        },
-        Hospital:{
-            type: String,
-        },
-        PhotoUrl:{
-            type: String,
-            default: 'https://img.freepik.com/premium-vector/front-portraits-young-doctors-character-avatars-illustration-graphic-design-animation_635702-196.jpg?w=1380'
-        }
     }],
     Vitals: {
         HeartRate: HeartRateSchema,
@@ -628,6 +644,10 @@ const patientmongoschema = mongoose.Schema({
                 type: String,
             },
             CartItems: [{
+                ItemID: {
+                    type: String,
+                    required:true
+                },
                 MedName: {
                     type: String,
                 },
@@ -643,16 +663,54 @@ const patientmongoschema = mongoose.Schema({
             DeliveredTime: String,
             Status: String,
         }],
-      Imaging: {
+    Imaging: {
         Name: String,
         Date: String,
         Time: String,
         Doctor: String,
         Hospital: String,
         Filename: String,
-      }  
+    },
+    Cart:{
+        type:[
+            {
+               ItemID:{
+               type: String,
+               required:true,
+               },
+               MedName:{
+                type: String,
+               },
+               Quantity:{
+                type: String,
+               }
+            }
+        ]
+    }
+    // Appointments:[{type: appointmentSchema}], 
 })
 
 
 var patient = mongoose.model('patient',patientmongoschema)
 module.exports.patient = patient
+
+
+
+// Doctors:[{
+//     Name:{
+//         type: String,
+//     },
+//     Degree: {
+//         type: String,
+//     },
+//     Specs:{
+//         type: String,
+//     },
+//     Hospital:{
+//         type: String,
+//     },
+//     PhotoUrl:{
+//         type: String,
+//         default: 'https://img.freepik.com/premium-vector/front-portraits-young-doctors-character-avatars-illustration-graphic-design-animation_635702-196.jpg?w=1380'
+//     }
+// }],

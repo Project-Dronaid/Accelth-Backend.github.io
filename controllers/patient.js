@@ -260,13 +260,12 @@ const adddoctors = async (req, res) => {
         "Profile.Personal.Email_id":  Email_id,
      },
         {
-            $push : {
+            $pull : {
                 Doctors: {
                     Name: Name,
                     Degree:Degree,
                     Specs:Specs,
                     Hospital:Hospital,
-                    PhotoUrl:PhotoUrl
                 }
             }
      },{upsert:true}).then(patient=>
@@ -360,7 +359,7 @@ const addHospitalization = async (req, res) => {
 }
 
 const OrderPlace = async (req, res) => {
-    const{OrderID,Date,Time,MedName1,Quantity1,MedName2,Quantity2,MedName3,Quantity3,InvoiceFilename,TotalAmount,Address,DroneID,
+    const{OrderID,Date,Time,CartItems,InvoiceFilename,TotalAmount,Address,DroneID,
     DeliveredDate,DeliveredTime,Status}= req.body
     const{Email_id}= req.params
     await Patient.patient.updateOne({
@@ -371,20 +370,7 @@ const OrderPlace = async (req, res) => {
                 OrderID: OrderID,
                 Date: Date,
                 Time: Time,
-                CartItems:[
-                    {
-                       MedName:MedName1,
-                       Quantity:Quantity1
-                    },
-                    {
-                        MedName:MedName2,
-                        Quantity:Quantity2
-                    },
-                    {
-                        MedName: MedName3,
-                        Quantity: Quantity3,
-                    }
-               ],
+                CartItems:CartItems,
                 InvoiceFilename: InvoiceFilename,
                 TotalAmount: TotalAmount,
                 Address: Address,

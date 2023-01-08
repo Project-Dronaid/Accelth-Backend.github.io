@@ -28,6 +28,7 @@ const doctorSchema = mongoose.Schema({
     DoctorId: {
         type: String,
         required:true,
+        unique:true,
     },
     Email_id: {
         type: String,
@@ -44,6 +45,9 @@ const doctorSchema = mongoose.Schema({
     Contact_Number:{
         type: Number,
         required:true,
+    },
+    MedicalLicence: {
+        type:String,
     },
     Qualification: {
         type: String,
@@ -72,15 +76,13 @@ const doctorSchema = mongoose.Schema({
     Subscription:{
         type:String,
     },
-    TimeSlots:[{
-        Time:{
-            type:String,
-        },
-        Status: {
-            type:String,
-            default: "Free",
+    TimeSlots:[
+        {
+            Date:String,
+            Time:String,
+            Status:String
         }
-    }],
+    ],
 })
 
 var doctor = mongoose.model('doctor',doctorSchema)

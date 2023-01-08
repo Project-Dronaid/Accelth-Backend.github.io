@@ -655,7 +655,10 @@ const patientmongoschema = mongoose.Schema({
                     type: Number,
                 }
             }],
-            InvoiceFilename: String,
+            InvoiceFilename:{
+                type:String,
+                default: "",
+            },
             TotalAmount: Number,
             Address: String,
             DroneID: String,
@@ -674,43 +677,25 @@ const patientmongoschema = mongoose.Schema({
     Cart:{
         type:[
             {
-               ItemID:{
-               type: String,
-               required:true,
-               },
-               MedName:{
+               ItemID: {
                 type: String,
-               },
-               Quantity:{
-                type: String,
-               }
+                required:true,
+                unique:true
+            },
+            MedName:{
+                type: String
+            },
+            Quantity:{
+                type: Number
+            },
+            Price:{
+                type: Number
             }
-        ]
-    }
-    // Appointments:[{type: appointmentSchema}], 
+        }
+    ]
+}
 })
 
 
 var patient = mongoose.model('patient',patientmongoschema)
 module.exports.patient = patient
-
-
-
-// Doctors:[{
-//     Name:{
-//         type: String,
-//     },
-//     Degree: {
-//         type: String,
-//     },
-//     Specs:{
-//         type: String,
-//     },
-//     Hospital:{
-//         type: String,
-//     },
-//     PhotoUrl:{
-//         type: String,
-//         default: 'https://img.freepik.com/premium-vector/front-portraits-young-doctors-character-avatars-illustration-graphic-design-animation_635702-196.jpg?w=1380'
-//     }
-// }],

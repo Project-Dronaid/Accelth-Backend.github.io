@@ -1,3 +1,5 @@
+const { appointment } = require("./models/appointment");
+
 Patient: {
     Profile: {
         Personal: {
@@ -858,4 +860,52 @@ MedicinesToBeSold: {
 //         },
 
 //     ];
+// }
+
+
+// TimeSlots: [
+//     {
+//         Today:[
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//         ],
+//         Tomorrow:[
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//             {
+//                 Time: "8:30 PM",
+//                 Status:"Free"
+//             },
+//         ]
+//     },
+// ]
+
+// appointment: {
+
+//     if(today == DataTimeNow())
+//     date: 
 // }

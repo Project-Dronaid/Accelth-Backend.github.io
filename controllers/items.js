@@ -1,12 +1,13 @@
 const MedItem = require('../models/items')
 const addMedicalItem = async(req,res) => {
-    const{ItemID,MedName,Manufacture,Contains,Description,SubMedName,SideEffects,Uses,Concerns,Warnings} = req.body
+    const{ItemID,MedName,Manufacture,Contains,Description,SubMedName,SideEffects,Uses,Concerns,Warnings,Price} = req.body
     await MedItem.medItems.create({
         ItemID:ItemID,
         MedName:MedName,
         Manufacture:Manufacture,
         Contains:Contains,
         Description:Description,
+        Price: Price,
         Substitutes:[{
             SubMedName:SubMedName,
         }],
@@ -63,7 +64,6 @@ const deleteMedicines = async(req,res)=>{
 
 const getasingleMedicine = async(req,res)=>{
     const{ItemID}=req.params
-
     try{
         const medicine = await MedItem.medItems.findOne({
             ItemID:ItemID,

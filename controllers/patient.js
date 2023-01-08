@@ -6,6 +6,8 @@ const otpGenerator = require('otp-generator')
 const crypto = require('crypto')
 const { param } = require('../routes/patientroute')
 const exp = require('constants')
+var moment = require('moment')
+const MedItem = require('../models/items')
 
 // const multer = require("multer");
 // const {GridFsStorage} = require("multer-gridfs-storage");
@@ -359,6 +361,15 @@ const addHospitalization = async (req, res) => {
 }
 
 const OrderPlace = async (req, res) => {
+    var DATE = moment().format('L')
+    var TIME = moment().format('LTS')
+    var ODRTIME = moment().format('LT')
+    var year = DATE.split('/')[2]
+    var month = DATE.split('/')[0]
+    var date = DATE.split('/')[1]
+    var hour = TIME.split(':')[0]
+    var minute = TIME.split(':')[1]
+    var seconds = TIME.split(':')[2].split(' ')[0]
     const{OrderID,Date,Time,CartItems,InvoiceFilename,TotalAmount,Address,DroneID,
     DeliveredDate,DeliveredTime,Status}= req.body
     const{Email_id}= req.params
@@ -367,9 +378,9 @@ const OrderPlace = async (req, res) => {
     },{
         $push : {
             Orders: {
-                OrderID: OrderID,
-                Date: Date,
-                Time: Time,
+                OrderID: "ODR"+year+month+date+hour+minute+seconds,
+                Date: DATE,
+                Time: ODRTIME,
                 CartItems:CartItems,
                 InvoiceFilename: InvoiceFilename,
                 TotalAmount: TotalAmount,
@@ -970,7 +981,44 @@ const addImaging = async(req,res)=>{
     }))
 }
 
+async function addItem(params,callback){
+    await Patient.patient.updateOne({
+        $push:{
+            Cart: {
+                ItemID:params.ItemID,
+                MedName:params.MedName,
+                Quantity: params.Quantity,
+                Price: params.Price,
+            }
+        }
+    }).then(patient=>callback(null,patient))
+}
 
+const addItemtoCart = async(req,res,next)=>{
+    const{ItemID,Quantity}=req.body
+    try{
+        const item = await MedItem.medItems.findOne({
+            ItemID:ItemID
+        })
+        paramData = {
+            "ItemID": ItemID,
+            "MedName": item.MedName,
+            "Quantity": Quantity,
+            "Price": item.Price,
+        }
+        addItem(paramData,(error,results)=>{
+            if(error) return next(error)
+            return res.status(200).send({
+                message: "Success",
+                data: results
+            })
+        })
+    }catch(error){
+        res.status(400).json(error)
+    }
+}
+
+module.exports.addItemtoCart = addItemtoCart
 module.exports.addImaging = addImaging
 module.exports.changePassword = changePassword
 module.exports.verifyOtp = verifyOtp

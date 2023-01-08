@@ -42,4 +42,5 @@ router.post('/updatePatientProfilePersonal/:Email_id',patientroute.updatePatient
 router.post('/updatePatientProfileMedical/:Email_id',patientroute.updatePatientProfileMedical)
 router.post('/updatePatientProfileLifestyle/:Email_id',patientroute.updatePatientProfileLifestyle)
 router.post('/addDoctor/:Email_id',patientroute.adddoctors)
+router.post('/addItemtoCart',patientroute.addItemtoCart)
 module.exports = router

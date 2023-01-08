@@ -8,6 +8,9 @@ const MedicalItemSchema = mongoose.Schema({
       type:String,
       required: true,
     },
+    Price: {
+        type: Number,
+    },
     Manufacture:{
         type: String,
         required: true,

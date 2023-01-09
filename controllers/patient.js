@@ -983,6 +983,8 @@ const addImaging = async(req,res)=>{
 
 async function addItem(params,callback){
     await Patient.patient.updateOne({
+        "Email_id":params.Email_id,
+    },{
         $push:{
             Cart: {
                 ItemID:params.ItemID,
@@ -991,16 +993,18 @@ async function addItem(params,callback){
                 Price: params.Price,
             }
         }
-    }).then(patient=>callback(null,patient))
+    },{upsert:true}).then(patient=>callback(null,patient))
 }
 
 const addItemtoCart = async(req,res,next)=>{
-    const{ItemID,Quantity}=req.body
+    const{ItemID}=req.body
+    const{Email_id}=req.params
     try{
         const item = await MedItem.medItems.findOne({
             ItemID:ItemID
         })
         paramData = {
+            "Email_id": Email_id,
             "ItemID": ItemID,
             "MedName": item.MedName,
             "Quantity": 1,
@@ -1017,6 +1021,82 @@ const addItemtoCart = async(req,res,next)=>{
         res.status(400).json(error)
     }
 }
+
+async function increaseQuant(params,callback){
+    await Patient.patient.updateOne({
+        "Email_id":params.Email_id,
+        "Cart.ItemID":params.ItemID
+    },{
+        $set:{
+            "Cart.ItemID.Quantity":params.Quantity+1,
+        }
+    },{upsert:true}).then(patient=>callback(null,patient))
+}
+
+const AddQuantity = async(req,res,next)=>{
+    const{ItemID}=req.body
+    const{Email_id}=req.params
+    try{
+        const item = await MedItem.medItems.findOne({
+            ItemID:ItemID
+        })
+        paramData = {
+            "Email_id":Email_id,
+            "ItemID": ItemID,
+            "MedName": item.MedName,
+            "Quantity": item.Quantity,
+            "Price": item.Price,
+        }
+        increaseQuant(paramData,(error,results)=>{
+            if(error) return next(error)
+            return res.status(200).send({
+                message: "Success",
+                data: results
+            })
+        })
+    }catch(error){
+        res.status(400).json(error)
+    }
+}
+
+async function decreaseQuant(params,callback){
+    await Patient.patient.updateOne({
+        "Email_id":params.Email_id,
+        "Cart.ItemID":params.ItemID
+    },{
+        $set:{
+            "Cart.ItemID.Quantity":params.Quantity-1,
+        }
+    },{upsert:true}).then(patient=>callback(null,patient))
+}
+
+const SubtractQuantity = async(req,res,next)=>{
+    const{ItemID}=req.body
+    const{Email_id}=req.params
+    try{
+        const item = await MedItem.medItems.findOne({
+            ItemID:ItemID
+        })
+        paramData = {
+            "Email_id":Email_id,
+            "ItemID": ItemID,
+            "MedName": item.MedName,
+            "Quantity": item.Quantity,
+            "Price": item.Price,
+        }
+        increaseQuant(paramData,(error,results)=>{
+            if(error) return next(error)
+            return res.status(200).send({
+                message: "Success",
+                data: results
+            })
+        })
+    }catch(error){
+        res.status(400).json(error)
+    }
+}
+
+
 
 
 module.exports.addItemtoCart = addItemtoCart

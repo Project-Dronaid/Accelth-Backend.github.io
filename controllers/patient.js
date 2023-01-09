@@ -1084,7 +1084,7 @@ const SubtractQuantity = async(req,res,next)=>{
             "Quantity": item.Quantity,
             "Price": item.Price,
         }
-        increaseQuant(paramData,(error,results)=>{
+        decreaseQuant(paramData,(error,results)=>{
             if(error) return next(error)
             return res.status(200).send({
                 message: "Success",
@@ -1098,7 +1098,8 @@ const SubtractQuantity = async(req,res,next)=>{
 
 
 
-
+module.exports.AddQuantity = AddQuantity
+module.exports.SubtractQuantity = SubtractQuantity
 module.exports.addItemtoCart = addItemtoCart
 module.exports.addImaging = addImaging
 module.exports.changePassword = changePassword

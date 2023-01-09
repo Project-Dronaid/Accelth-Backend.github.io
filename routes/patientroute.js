@@ -42,5 +42,7 @@ router.post('/updatePatientProfilePersonal/:Email_id',patientroute.updatePatient
 router.post('/updatePatientProfileMedical/:Email_id',patientroute.updatePatientProfileMedical)
 router.post('/updatePatientProfileLifestyle/:Email_id',patientroute.updatePatientProfileLifestyle)
 router.post('/addDoctor/:Email_id',patientroute.adddoctors)
-router.post('/addItemtoCart',patientroute.addItemtoCart)
+router.post('/addItemtoCart/:Email_id',patientroute.addItemtoCart)
+router.post('/AddQuantity/:Email_id',patientroute.AddQuantity)
+router.post('/SubtractQuantity/:Email_id',patientroute.SubtractQuantity)
 module.exports = router

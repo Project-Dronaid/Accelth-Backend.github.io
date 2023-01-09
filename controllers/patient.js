@@ -1003,7 +1003,7 @@ const addItemtoCart = async(req,res,next)=>{
         paramData = {
             "ItemID": ItemID,
             "MedName": item.MedName,
-            "Quantity": Quantity,
+            "Quantity": 1,
             "Price": item.Price,
         }
         addItem(paramData,(error,results)=>{
@@ -1017,6 +1017,7 @@ const addItemtoCart = async(req,res,next)=>{
         res.status(400).json(error)
     }
 }
+
 
 module.exports.addItemtoCart = addItemtoCart
 module.exports.addImaging = addImaging

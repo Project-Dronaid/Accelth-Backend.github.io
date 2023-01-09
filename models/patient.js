@@ -653,6 +653,7 @@ const patientmongoschema = mongoose.Schema({
                 },
                 Quantity:{
                     type: Number,
+                    default:1
                 }
             }],
             InvoiceFilename:{

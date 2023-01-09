@@ -1060,6 +1060,18 @@ const AddQuantity = async(req,res,next)=>{
 }
 
 async function decreaseQuant(params,callback){
+    if(params.Quantity==1){
+        await Patient.patient.updateOne({
+            "Email_id":params.Email_id,
+            "Cart.ItemID":params.ItemID
+        },{
+            $pull:{
+                Cart:{
+                    ItemID: params.ItemID
+                }
+            }
+        }).then(patient=>callback(null,patient))
+    }
     await Patient.patient.updateOne({
         "Email_id":params.Email_id,
         "Cart.ItemID":params.ItemID

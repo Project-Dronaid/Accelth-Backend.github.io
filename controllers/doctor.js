@@ -605,9 +605,7 @@ const getasingledoctor = async (req, res) => {
 const updateTime = async(req,res)=>{
     const{TimeSlots}=req.body
     const{DoctorId}=req.params
-    await Doctor.doctor.updateOne({
-        DoctorId: DoctorId,
-    },{
+    await Doctor.doctor.updateMany({},{
         $push: {
             TimeSlots:TimeSlots
         }

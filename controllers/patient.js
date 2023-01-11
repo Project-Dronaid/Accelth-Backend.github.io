@@ -983,7 +983,7 @@ const addImaging = async(req,res)=>{
 
 async function addItem(params,callback){
     await Patient.patient.updateOne({
-        "Email_id":params.Email_id,
+        Email_id:params.Email_id,
     },{
         $push:{
             Cart: {
@@ -993,7 +993,7 @@ async function addItem(params,callback){
                 Price: params.Price,
             }
         }
-    },{upsert:true}).then(patient=>callback(null,patient))
+    }).then(patient=>callback(null,patient))
 }
 
 const addItemtoCart = async(req,res,next)=>{
@@ -1003,6 +1003,7 @@ const addItemtoCart = async(req,res,next)=>{
         const item = await MedItem.medItems.findOne({
             ItemID:ItemID
         })
+        console.log(Email_id)
         paramData = {
             "Email_id": Email_id,
             "ItemID": ItemID,
@@ -1022,96 +1023,44 @@ const addItemtoCart = async(req,res,next)=>{
     }
 }
 
-async function increaseQuant(params,callback){
-    await Patient.patient.updateOne({
-        "Email_id":params.Email_id,
-        "Cart.ItemID":params.ItemID
-    },{
-        $set:{
-            "Cart.ItemID.Quantity":params.Quantity+1,
-        }
-    },{upsert:true}).then(patient=>callback(null,patient))
-}
-
-const AddQuantity = async(req,res,next)=>{
-    const{ItemID}=req.body
+const ChangeQuantity = async(req,res)=>{
+    const{ItemID,Quantity}=req.body
     const{Email_id}=req.params
-    try{
-        const item = await MedItem.medItems.findOne({
-            ItemID:ItemID
-        })
-        paramData = {
-            "Email_id":Email_id,
-            "ItemID": ItemID,
-            "MedName": item.MedName,
-            "Quantity": item.Quantity,
-            "Price": item.Price,
-        }
-        increaseQuant(paramData,(error,results)=>{
-            if(error) return next(error)
-            return res.status(200).send({
-                message: "Success",
-                data: results
-            })
-        })
-    }catch(error){
-        res.status(400).json(error)
-    }
-}
-
-async function decreaseQuant(params,callback){
-    if(params.Quantity==1){
-        await Patient.patient.updateOne({
-            "Email_id":params.Email_id,
-            "Cart.ItemID":params.ItemID
-        },{
-            $pull:{
-                Cart:{
-                    ItemID: params.ItemID
+        if(Quantity==0){
+            await Patient.patient.updateOne({
+                Email_id:Email_id,
+            },{
+                $pull:{
+                    Cart:{
+                        ItemID:ItemID,
+                    }
                 }
-            }
-        }).then(patient=>callback(null,patient))
-    }
-    await Patient.patient.updateOne({
-        "Email_id":params.Email_id,
-        "Cart.ItemID":params.ItemID
-    },{
-        $set:{
-            "Cart.ItemID.Quantity":params.Quantity-1,
+            }).then(patient=>{
+                res.status(200).json({
+                    Cart: patient
+                })
+             }).catch((err)=>res.status(400).json(err))
         }
-    },{upsert:true}).then(patient=>callback(null,patient))
-}
-
-const SubtractQuantity = async(req,res,next)=>{
-    const{ItemID}=req.body
-    const{Email_id}=req.params
-    try{
-        const item = await MedItem.medItems.findOne({
-            ItemID:ItemID
-        })
-        paramData = {
-            "Email_id":Email_id,
-            "ItemID": ItemID,
-            "MedName": item.MedName,
-            "Quantity": item.Quantity,
-            "Price": item.Price,
+        else{
+            await Patient.patient.updateOne(
+                {
+                  Email_id: Email_id,
+                  Cart: { $elemMatch: { ItemID: ItemID} }
+                },
+                { $set: { "Cart.$.Quantity" : Quantity } }
+             ).then(patient=>{
+                res.status(200).json({
+                    Cart: patient
+                })
+             })
         }
-        decreaseQuant(paramData,(error,results)=>{
-            if(error) return next(error)
-            return res.status(200).send({
-                message: "Success",
-                data: results
-            })
-        })
-    }catch(error){
-        res.status(400).json(error)
-    }
 }
 
 
 
-module.exports.AddQuantity = AddQuantity
-module.exports.SubtractQuantity = SubtractQuantity
+
+
+module.exports.ChangeQuantity = ChangeQuantity
 module.exports.addItemtoCart = addItemtoCart
 module.exports.addImaging = addImaging
 module.exports.changePassword = changePassword

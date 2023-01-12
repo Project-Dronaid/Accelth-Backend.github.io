@@ -56,6 +56,13 @@ router.post('/upload/covid/:Email_id',upload.single('file'),async (req,res)=>{
     }).catch((err)=>res.status(400).json(err))
 })
 
+router.post('/commonuploads',upload.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file:req.file,
+        message:"success"
+    })
+})
+
 router.post('/upload/imaging/:Email_id',upload.single('file'),async (req,res)=>{
     const fileName = req.file.filename
     await Patient.patient.updateOne({

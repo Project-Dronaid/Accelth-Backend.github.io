@@ -681,7 +681,6 @@ const patientmongoschema = mongoose.Schema({
             ItemID: {
                 type: String,
                 required:true,
-                unique:true
             },
             MedName:{
                 type: String

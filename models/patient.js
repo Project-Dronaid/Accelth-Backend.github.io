@@ -635,7 +635,6 @@ const patientmongoschema = mongoose.Schema({
     Orders:[{
             OrderID: {
                 type: String,
-                unique: true,
             },
             Date: {
                     type: String,

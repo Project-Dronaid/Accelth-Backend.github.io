@@ -732,25 +732,20 @@ const patientmongoschema = mongoose.Schema({
         Hospital: String,
         Filename: String,
     },
-    Cart:{
-        type:[
-            {
-            ItemID: {
-                type: String,
-                required:true,
-            },
-            MedName:{
-                type: String
-            },
-            Quantity:{
-                type: Number
-            },
-            Price:{
-                type: Number
-            }
+    Cart:[{
+        ItemID: {
+            type: String,
+        },
+        MedName:{
+            type: String
+        },
+        Quantity:{
+            type: Number
+        },
+        Price:{
+            type: Number
         }
-    ]
-}
+    }],
 })
 
 

@@ -237,35 +237,35 @@ Patient: {
     Issues: {
         [ 
             {
-                Status: "ONGOING",
-                Info: "COVID",
-                Date: "10/10/2022",
-                Time: "12:56 PM",
-                Doc_Name: "Dr. Nitin Dongri",
-                Hospital: "City Hospital, Medical Hospital",
-                Problem: "Had fever and body ache 2 days ago, now it has turned into sore troat and cold.",
-                Treatment_Plan: "COVID-19 (CT-22)",
-                Diagnosis: "COVID-19, Virus identified (09 Oct, 2022)",
-                Followup: "2 Weeks",
-                Recovery: {
-                    Expected: "21 days",
-                    Actual: "25 days"
+                "Status": "ONGOING",
+                "Info": "COVID",
+                "Date": "10/10/2022",
+                "Time": "12:56 PM",
+                "Doc_Name": "Dr. Nitin Dongri",
+                "Hospital": "City Hospital, Medical Hospital",
+                "Problem": "Had fever and body ache 2 days ago, now it has turned into sore troat and cold.",
+                "Treatment_Plan": "COVID-19 (CT-22)",
+                "Diagnosis": "COVID-19, Virus identified (09 Oct, 2022)",
+                "Followup": "2 Weeks",
+                "Recovery": {
+                    "Expected": "21 days",
+                    "Actual": "25 days"
                 }
             },
             {
-                Status: "CURED",
-                Info: "Shoulder Dislocated",
-                Date: "10/10/2022",
-                Time: "12:56 PM",
-                Doc_Name: "Dr. Nitin Dongri",
-                Hospital: "City Hospital, Medical Hospital",
-                Problem: "Recent trauma to the arm- Fell onto an outstretched arm from a standing position Pain, swelling, bruising at or around the elbow Limited motion at the elbow",
-                Treatment_Plan: "Surgical treatment: Open Reduction and Internal Fixation Surgery",
-                Diagnosis: "Olecranon fracture- Displaced Elbow",
-                Followup: "6 months",
-                Recovery: {
-                   Expected: "6 months",
-                   Actual : "5 months 20 days",
+                "Status": "CURED",
+                "Info": "Shoulder Dislocated",
+                "Date": "10/10/2022",
+                "Time": "12:56 PM",
+                "Doc_Name": "Dr. Nitin Dongri",
+                "Hospital": "City Hospital, Medical Hospital",
+                "Problem": "Recent trauma to the arm- Fell onto an outstretched arm from a standing position Pain, swelling, bruising at or around the elbow Limited motion at the elbow",
+                "Treatment_Plan": "Surgical treatment: Open Reduction and Internal Fixation Surgery",
+                "Diagnosis": "Olecranon fracture- Displaced Elbow",
+                "Followup": "6 months",
+                "Recovery": {
+                   "Expected:":"6 months",
+                   "Actual ": "5 months 20 days",
                 }
             }
         ];
@@ -273,67 +273,67 @@ Patient: {
     Visits: {
         [
             {
-                Year: "2022",
-                Date: "10/10/2022",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2022",
+                "Date": "10/10/2022",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2022",
-                Date: "05/09/2022",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2022",
+                "Date": "05/09/2022",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2022",
-                Date: "17/01/2022",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2022",
+                "Date": "17/01/2022",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2021",
-                Date: "26/07/2021",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2021",
+                "Date": "26/07/2021",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2020",
-                Date: "15/12/2020",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2020",
+                "Date": "15/12/2020",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2020",
-                Date: "25/09/2020",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2020",
+                "Date": "25/09/2020",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2019",
-                Date: "09/10/2019",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2019",
+                "Date": "09/10/2019",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2019",
-                Date: "25/05/2019",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2019",
+                "Date": "25/05/2019",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             {
-                Year: "2018",
-                Date: "10/06/2018",
-                Issue: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Post: "M.B.B.S, M.D"
+                "Year": "2018",
+                "Date": "10/06/2018",
+                "Issue": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D"
             },
             
         ];
@@ -341,32 +341,36 @@ Patient: {
     Hospitalization: {
         [
             {
-                Year: "2022",
-                Date: "10/10/2022",
-                Reason: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Hospital: "City Hospital"
+                "Year": "2022",
+                "Date": "10/10/2022",
+                "Reason": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D",
+                "Hospital": "City Hospital"
             },
             {
-                Year: "2022",
-                Date: "17/01/2022",
-                Reason: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Hospital: "City Hospital"
+                "Year": "2022",
+                "Date": "17/01/2022",
+                "Reason": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D",
+                "Hospital": "City Hospital"
             },
             {
-                Year: "2020",
-                Date: "25/09/2020",
-                Reason: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Hospital: "City Hospital"
+                "Year": "2020",
+                "Date": "25/09/2020",
+                "Reason": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D",
+                "Hospital": "City Hospital"
             },
             {
-                Year: "2019",
-                Date: "25/05/2019",
-                Reason: "COVID 19 detected",
-                Doctor: "Dr. Nitin Dongri",
-                Hospital: "City Hospital"
+                "Year": "2019",
+                "Date": "25/05/2019",
+                "Reason": "COVID 19 detected",
+                "Doctor": "Dr. Nitin Dongri",
+                "Post": "M.B.B.S, M.D",
+                "Hospital": "City Hospital"
             },
         ];
     }
@@ -374,7 +378,7 @@ Patient: {
         [
             {
                 OrderID:"758619387409",
-                Date: "12/11/2022",
+                "Date": "12/11/2022",
                 Time: "5:30 AM",
                 CartItems: [
                     {
@@ -400,7 +404,7 @@ Patient: {
             },
             {
                 OrderID:"758619387409",
-                Date: "12/11/2022",
+                "Date": "12/11/2022",
                 Time: "5:30 AM",
                 CartItems: [
                     {
@@ -426,7 +430,7 @@ Patient: {
             },
             {
                 OrderID:"758619387409",
-                Date: "12/11/2022",
+                "Date": "12/11/2022",
                 Time: "5:30 AM",
                 CartItems: [
                     {
@@ -452,7 +456,7 @@ Patient: {
             },
             {
                 OrderID:"758619387409",
-                Date: "12/11/2022",
+                "Date": "12/11/2022",
                 Time: "5:30 AM",
                 CartItems: [
                     {
@@ -478,7 +482,7 @@ Patient: {
             },
             {
                 OrderID:"758619387409",
-                Date: "12/11/2022",
+                "Date": "12/11/2022",
                 Time: "5:30 AM",
                 CartItems: [
                     {

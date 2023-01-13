@@ -54,6 +54,22 @@ const changePassword = async(req,res)=>{
 
 }
 
+
+const deleteApatient = async(req,res)=>{
+    const{Email_id} = req.params
+    await Patient.patient.findOneAndDelete({
+        Email_id:Email_id,
+    }).then(Patient=>
+        res.status(200).json({
+            Message:"Patient Deleted successfully",
+            Patient: Patient,
+        })
+        ).catch((error)=>res.status(400).json({
+            Message : error.message
+        })
+    )
+}
+
 const registerPatient = async (req, res)=> {
     const{Name,Contact_Number,Email_id,Password,DateofBirth,Gender,Bloodgroup,Height,Weight,Allergies,Blindcondition} = req.body
     if(Password.length <= 8){
@@ -78,7 +94,71 @@ const registerPatient = async (req, res)=> {
                 Medical:{
                     Allergies: Allergies,
                     Blindcondition:Blindcondition,
+                },
+                Lifestyle:{
+
                 }
+            },
+            Vitals:{
+                HeartRate:{
+
+                },
+                BloodPressure:{
+
+                },
+                Oxygen:{
+
+                },
+                Respiratory:{
+
+                },
+                Temperature:{
+
+                },
+                Haemoglobin:{
+
+                },
+                Glucose:{
+
+                },
+                Thyroid:{
+
+                },
+            },
+            Lab_Reports:{
+                Diagnostic_Test: {
+                    Covid:{
+
+                    },
+                    Dengue:{
+
+                    },
+                },
+                Blood_Tests:{
+                    CBC:{
+
+                    },
+                    Basic_Metabolic_Panel:{
+
+                    },
+                    Comprehensive_Metabolic_Panel:{
+
+                    },
+                    ThyroidPanel:{
+
+                    },
+                    LipidPanel:{
+
+                    },
+                }
+            },
+            Medical_Device:{
+                Fitbit:{
+
+                },
+                Glucometer:{
+
+                },
             },
         }).then(Patient=>
             res.status(200).json({
@@ -1101,3 +1181,4 @@ module.exports.updatePatientProfilePersonal = updatePatientProfilePersonal
 module.exports.updatePatientProfileMedical= updatePatientProfileMedical
 module.exports.updatePatientProfileLifestyle =updatePatientProfileLifestyle
 module.exports.adddoctors=adddoctors
+module.exports.deleteApatient =deleteApatient

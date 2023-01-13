@@ -49,39 +49,50 @@ const PersonalProfileSchema = mongoose.Schema({
 const MedicalProfileSchema = mongoose.Schema({
     Allergies:{
         type: String,
+        default: "add allergies"
     },
     Blindcondition: {
         type: String,
+        default:""
     },
     Vaccination:{
         type: String,
+        default:"add vaccination history"
     },
     Currect_Medications:{
         type: String,
+        default:"add current medications"
     },
     Chronic_Diseases: {
         type: String,
+        default:"add chronic disease history"
     }, 
     Injuries: {
         type: String,
+        default:"add injuries"
     },
     Surgeries: {
         type: String,
+        default:"add surgical history"
     },
 })
 
 const LifeStyleProfileSchema = mongoose.Schema({
     Smoking:{
         type: String,
+        default:"add smoking frequency"
     },    
     Alcohol:{
         type: String,
+        default:"add alcohol frequency"
     },
     Activity: {
         type: String,
+        default:"add physical activity "
     },
     Food_Preference: {
         type: String,
+        default:"add food choice "
     },
 })
 const ProfilePatientSchema = mongoose.Schema({
@@ -104,150 +115,187 @@ const MealPlanMedicationSchema = mongoose.Schema({
 const HeartRateSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const BloodPressureSchema = mongoose.Schema({
     Latest_result: {
         type: String,
+        default: "0/0"
     },
     Avg_result:{
         type: String,
+        default: "0/0"
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const OxygenSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default:0
     },
     Status:{
         type: String,
+        default:"UNKNOWN"
     }
 })
 
 const RespiratorySchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default:0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const TemperatureSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default:0
     },
     Avg_result:{
         type: Number,
+        default:0
     },
     Status:{
         type: String,
+        default:"UNKNOWN"
     }
 })
 
 const HaemoglobinSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const GlucoseSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const ThyroidSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const UreaNitrogenSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const ThyroxineSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const CholestrolSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result:{
         type: Number,
+        default: 0
     },
     Status:{
         type: String,
+        default: "UNKNOWN"
     }
 })
 
 const CovidReportSchema = mongoose.Schema({
     Name:{
         type: String,
+        default: "COVID-19 Report"
     },
     File_Name: {
         type: String,
+        default: "https://gnh671x702.execute-api.us-west-2.amazonaws.com/file/fileshow/folder.png"
     },
 })
 
 const DengueSchema = mongoose.Schema({
     Name:{
         type: String,
+        default: "Dengue Report"
     },
     File_Name: {
         type: String,
+        default: "https://gnh671x702.execute-api.us-west-2.amazonaws.com/file/fileshow/folder.png"
     },
 })
 
@@ -448,39 +496,49 @@ const BloodTestSchema = mongoose.Schema({
 const FitBitSchema = mongoose.Schema({
     NumberofSteps: {
         type: Number,
+        default: 0,
     },
     Distance: {
         type: String,
+        default: "0 km"
     },
     Calories: {
         type: Number,
+        default: 0,
     },
     FatBurn: {
         type: String,
+        default: "115-132 BPM"
     },
     Cardio: {
         type: String,
+        default: "0 BPM"
     },
     Peak: {
         type: String,
+        default: "0 BPM"
     },
 })
 
 const GlucometerSchema= mongoose.Schema({
     Latest_result: {
         type: Number,
+        default: 0
     },
     Avg_result: {
         type: Number,
+        default: 0
     }
 })
 
 const RecoverySchema = mongoose.Schema({
     Expected: {
         type: String,
+        default: "0 days"
     },
     Actual: {
         type: String,
+        default: "0 days"
     }
 })
 

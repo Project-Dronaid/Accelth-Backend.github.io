@@ -1,6 +1,5 @@
 const Appointment = require('../models/appointment')
 var moment = require('moment')
-
 const addAppointment = async(req,res)=>{
     var DATE = moment().format('l')
     var TIME = moment().format('LTS')
@@ -87,6 +86,24 @@ const distinctDoctorsofaPatient = async(req,res)=>{
     
 }
 
+const deleteAppointment = async(req,res)=>{
+    const{AppointmentID}=req.params
+    try{
+        await Appointment.appointment.findOneAndDelete({
+            "AppointmentID":  AppointmentID,
+        }).then(appointment=>
+            res.status(200).json({
+                Message:"Appointment Cancelled successfully",
+                Patient: appointment,
+            })
+            ).catch((error)=>res.status(400).json({
+                Message : error.message
+            })
+        )
+    }catch(error){
+        res.status(400).json(error)
+    }
+}
 
 
 module.exports.addAppointment = addAppointment
@@ -94,3 +111,4 @@ module.exports.getasingleappointment = getasingleappointment
 module.exports.getAllAppointmentofaPatient = getAllAppointmentofaPatient
 module.exports.getAllAppointmentofaDoctor = getAllAppointmentofaDoctor
 module.exports.distinctDoctorsofaPatient = distinctDoctorsofaPatient
+module.exports.deleteAppointment = deleteAppointment

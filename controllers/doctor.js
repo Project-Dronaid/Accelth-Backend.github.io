@@ -12,8 +12,8 @@ const RegisterDoctor = async(req,res)=>{
     var hour = TIME.split(':')[0]
     var minute = TIME.split(':')[1]
     var seconds = TIME.split(':')[2].split(' ')[0]
-    var dateTime = moment().format('DD/MM/YYYY')
-    var tomorrow = moment().add(1, 'days').format('DD/MM/YYYY')
+    var dateTime = moment().format('DD/M/YYYY')
+    var tomorrow = moment().add(1, 'days').format('DD/M/YYYY')
     const{Name,Contact_Number,Email_id,Password,Qualification,MedicalLicence,Specs,Hospital,PhotoUrl,Address,GSTIN,AccountNumber,AccountHolderName,BankName,IFSC} = req.body
     if(Password.length <= 8){
         return res.status(400).json({

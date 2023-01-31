@@ -10,6 +10,7 @@ const MedicalItemSchema = mongoose.Schema({
     },
     Price: {
         type: Number,
+        required: true,
     },
     Manufacture:{
         type: String,
@@ -18,6 +19,10 @@ const MedicalItemSchema = mongoose.Schema({
     Contains: {
         type: String,
     },
+    Rating: {
+        type: Number,
+        default: 0,
+    },
     Description: {
       type: String,
       required: true, 
@@ -25,17 +30,34 @@ const MedicalItemSchema = mongoose.Schema({
     Substitutes: [{
         SubMedName: String,
     }],
-    SideEffects:{
+    Description: {
         type: String,
     },
-    Uses: {
-        type:String,
+    Benefits: {
+        type: String
     },
-    Concerns: {
-        type:String,
+    HowToUse: {
+        type: String,
     },
-    Warnings:{
-        type:String,
+    StorageInfo: {
+        type: String,
+    },
+    SafetyInfo: {
+        type: String,
+    },
+    ProductDetails: {
+        Expires: {
+            type: String
+        },
+        Brand: {
+            type: String,
+        },
+        Country: {
+            type: String
+        },
+    },
+    Disclaimer: {
+        type: String
     },
 })
 

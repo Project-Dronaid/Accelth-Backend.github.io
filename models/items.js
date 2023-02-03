@@ -5,14 +5,20 @@ const MedicalItemSchema = mongoose.Schema({
         required: true,
     },
     MedName: {
-      type:String,
-      required: true,
+        type: String,
+        required: true,
     },
+    Images: [{
+        Filename: {
+            type: String,
+            default: "https://gnh671x702.execute-api.us-west-2.amazonaws.com/file/fileshow/DefaultMedItem.png"
+        }
+    }],
     Price: {
         type: Number,
         required: true,
     },
-    Manufacture:{
+    Manufacture: {
         type: String,
         required: true,
     },
@@ -24,12 +30,9 @@ const MedicalItemSchema = mongoose.Schema({
         default: 0,
     },
     Description: {
-      type: String,
-      required: true, 
+        type: String,
+        required: true,
     },
-    Substitutes: [{
-        SubMedName: String,
-    }],
     Description: {
         type: String,
     },
@@ -61,5 +64,5 @@ const MedicalItemSchema = mongoose.Schema({
     },
 })
 
-var medItems = mongoose.model('medItems',MedicalItemSchema)
+var medItems = mongoose.model('medItems', MedicalItemSchema)
 module.exports.medItems = medItems

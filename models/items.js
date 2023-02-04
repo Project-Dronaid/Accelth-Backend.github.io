@@ -8,12 +8,17 @@ const MedicalItemSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    Images: [{
-        Filename: {
-            type: String,
-            default: "https://gnh671x702.execute-api.us-west-2.amazonaws.com/file/fileshow/DefaultMedItem.png"
-        }
-    }],
+    Images: {
+        type: [
+            {
+                Filename: {
+                    type: String,
+                    default: "https://gnh671x702.execute-api.us-west-2.amazonaws.com/file/fileshow/DefaultMedItem.png"
+                }
+            }
+        ],
+        default: []
+    },
     Price: {
         type: Number,
         required: true,

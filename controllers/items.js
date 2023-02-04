@@ -1,20 +1,24 @@
 const MedItem = require('../models/items')
 const addMedicalItem = async(req,res) => {
-    const{ItemID,MedName,Manufacture,Contains,Description,SubMedName,SideEffects,Uses,Concerns,Warnings,Price} = req.body
+    const{ItemID,MedName,Manufacture,Contains,Description,Benefits,HowToUse,StorageInfo,SafetyInfo,Expires,Brand,Country,Disclaimer,Price,Images} = req.body
     await MedItem.medItems.create({
         ItemID:ItemID,
         MedName:MedName,
+        Price: Price,
         Manufacture:Manufacture,
         Contains:Contains,
         Description:Description,
-        Price: Price,
-        Substitutes:[{
-            SubMedName:SubMedName,
-        }],
-        SideEffects:SideEffects,
-        Uses:Uses,
-        Concerns:Concerns,
-        Warnings:Warnings,
+        Benefits:Benefits,
+        HowToUse:HowToUse,
+        StorageInfo:StorageInfo,
+        SafetyInfo:SafetyInfo,
+        ProductDetails:{
+            Expires:Expires,
+            Brand:Brand,
+            Country:Country
+        },
+        Images: Images,
+        Disclaimer:Disclaimer,
     }).then(MedItem=>
         res.status(200).json({
             Message:"Item added successfully",

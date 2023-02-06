@@ -1,44 +1,44 @@
 const mongoose = require('mongoose')
 const PersonalProfileSchema = mongoose.Schema({
-    Name:{
+    Name: {
         type: String,
         required: true,
     },
-    Contact_Number:{
+    Contact_Number: {
         type: String,
-        required : true,
+        required: true,
     },
     Email_id: {
         type: String,
-        required : true,
+        required: true,
         unique: true,
     },
-    Password:{
+    Password: {
         type: String,
-        required : true,
+        required: true,
         default: "Password",
         minlength: 8,
     },
-    Gender:{
-        type: String,
-    },  
-    DateofBirth: {
-        type: String,
-    },    
-    Bloodgroup:{
+    Gender: {
         type: String,
     },
-    Maritial_Status:{
+    DateofBirth: {
+        type: String,
+    },
+    Bloodgroup: {
+        type: String,
+    },
+    Maritial_Status: {
         type: String,
         default: "Not Defined"
     },
     Height: {
         type: String,
     },
-    Weight:{
+    Weight: {
         type: String,
     },
-    Emergency_contact:{
+    Emergency_contact: {
         type: String,
     },
     Address: {
@@ -48,52 +48,52 @@ const PersonalProfileSchema = mongoose.Schema({
 })
 
 const MedicalProfileSchema = mongoose.Schema({
-    Allergies:{
+    Allergies: {
         type: String,
         default: "add allergies"
     },
     Blindcondition: {
         type: String,
-        default:"add blind condition"
+        default: "add blind condition"
     },
-    Vaccination:{
+    Vaccination: {
         type: String,
-        default:"add vaccination history"
+        default: "add vaccination history"
     },
-    Currect_Medications:{
+    Currect_Medications: {
         type: String,
-        default:"add current medications"
+        default: "add current medications"
     },
     Chronic_Diseases: {
         type: String,
-        default:"add chronic disease history"
-    }, 
+        default: "add chronic disease history"
+    },
     Injuries: {
         type: String,
-        default:"add injuries"
+        default: "add injuries"
     },
     Surgeries: {
         type: String,
-        default:"add surgical history"
+        default: "add surgical history"
     },
 })
 
 const LifeStyleProfileSchema = mongoose.Schema({
-    Smoking:{
+    Smoking: {
         type: String,
-        default:"add smoking frequency"
-    },    
-    Alcohol:{
+        default: "add smoking frequency"
+    },
+    Alcohol: {
         type: String,
-        default:"add alcohol frequency"
+        default: "add alcohol frequency"
     },
     Activity: {
         type: String,
-        default:"add physical activity "
+        default: "add physical activity "
     },
     Food_Preference: {
         type: String,
-        default:"add food choice"
+        default: "add food choice"
     },
 })
 const ProfilePatientSchema = mongoose.Schema({
@@ -102,15 +102,15 @@ const ProfilePatientSchema = mongoose.Schema({
     Lifestyle: LifeStyleProfileSchema,
 })
 const MealPlanMedicationSchema = mongoose.Schema({
-    Dose1:{
+    Dose1: {
         type: String,
         default: ""
     },
-    Dose2:{
+    Dose2: {
         type: String,
         default: ""
     },
-    Dose3:{
+    Dose3: {
         type: String,
         default: ""
     }
@@ -121,11 +121,11 @@ const HeartRateSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -136,11 +136,11 @@ const BloodPressureSchema = mongoose.Schema({
         type: String,
         default: "0/0"
     },
-    Avg_result:{
+    Avg_result: {
         type: String,
         default: "0/0"
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -151,13 +151,13 @@ const OxygenSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
-        default:0
+        default: 0
     },
-    Status:{
+    Status: {
         type: String,
-        default:"UNKNOWN"
+        default: "UNKNOWN"
     }
 })
 
@@ -166,11 +166,11 @@ const RespiratorySchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
-        default:0
+        default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -179,15 +179,15 @@ const RespiratorySchema = mongoose.Schema({
 const TemperatureSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
-        default:0
+        default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
-        default:0
+        default: 0
     },
-    Status:{
+    Status: {
         type: String,
-        default:"UNKNOWN"
+        default: "UNKNOWN"
     }
 })
 
@@ -196,11 +196,11 @@ const HaemoglobinSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -211,11 +211,11 @@ const GlucoseSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -226,11 +226,11 @@ const ThyroidSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -241,11 +241,11 @@ const UreaNitrogenSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -256,11 +256,11 @@ const ThyroxineSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
@@ -271,18 +271,18 @@ const CholestrolSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Avg_result:{
+    Avg_result: {
         type: Number,
         default: 0
     },
-    Status:{
+    Status: {
         type: String,
         default: "UNKNOWN"
     }
 })
 
 const CovidReportSchema = mongoose.Schema({
-    Name:{
+    Name: {
         type: String,
         default: "COVID-19 Report"
     },
@@ -293,7 +293,7 @@ const CovidReportSchema = mongoose.Schema({
 })
 
 const DengueSchema = mongoose.Schema({
-    Name:{
+    Name: {
         type: String,
         default: "Dengue Report"
     },
@@ -307,41 +307,41 @@ const CBCSchema = mongoose.Schema({
     Name: {
         type: String,
         default: ""
-    },       
-    File_Name:{         
+    },
+    File_Name: {
         type: String,
         default: ""
-    },          
-    WBC:{   
-        type: Number,
-        default: 0,               
-    },          
-    RBC: {  
-        type: Number,
-        default: 0,         
     },
-    Haemoglobin: HaemoglobinSchema,          
-    Haematocrit: {               
+    WBC: {
+        type: Number,
+        default: 0,
+    },
+    RBC: {
+        type: Number,
+        default: 0,
+    },
+    Haemoglobin: HaemoglobinSchema,
+    Haematocrit: {
         type: Number,
         default: 0
-    },          
+    },
     MCV: {
         type: Number,
         default: 0
-    },         
+    },
     MCHC: {
         type: Number,
         default: 0
-    },          
+    },
     RDW: {
         type: Number,
         default: 0
-    },                
+    },
     Platelets: {
-        type: Number,  
+        type: Number,
         default: 0
     },
-    Neutrophils : {
+    Neutrophils: {
         type: Number,
         default: 0
     },
@@ -349,39 +349,39 @@ const CBCSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Monocytes:{
+    Monocytes: {
         type: Number,
         default: 0
     },
     EOS: {
         type: Number,
         default: 0
-    },    
-    Basos :{
+    },
+    Basos: {
         type: Number,
         default: 0
     },
 })
 
 const Basic_Metabolic_PanelSchema = mongoose.Schema({
-    Name:{
-        type: String,
-        default: ""
-    },              
-    File_Name:{
+    Name: {
         type: String,
         default: ""
     },
-    Glucose:GlucoseSchema,
-    UreaNitrogen:{
+    File_Name: {
+        type: String,
+        default: ""
+    },
+    Glucose: GlucoseSchema,
+    UreaNitrogen: {
         type: Number,
         default: 0
     },
-    Creatine:{
+    Creatine: {
         type: Number,
         default: 0
     },
-    Sodium:{
+    Sodium: {
         type: Number,
         default: 0
     },
@@ -397,7 +397,7 @@ const Basic_Metabolic_PanelSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Calcium:{
+    Calcium: {
         type: Number,
         default: 0
     }
@@ -407,13 +407,13 @@ const Comprehensive_MPschema = mongoose.Schema({
     Name: {
         type: String,
         default: ""
-    },                    
+    },
     File_Name: {
         type: String,
         default: ""
     },
-    UreaNitrogen: UreaNitrogenSchema,                                                            
-    Creatine:{
+    UreaNitrogen: UreaNitrogenSchema,
+    Creatine: {
         type: Number,
         default: 0
     },
@@ -421,26 +421,26 @@ const Comprehensive_MPschema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    Potassium:{
+    Potassium: {
         type: Number,
         default: 0
     },
-    
+
     Chlorine: {
         type: Number,
         default: 0
     },
-    
+
     Carbon_Dioxide: {
         type: Number,
         default: 0
     },
-    
+
     Calcium: {
         type: Number,
         default: 0
     },
-    
+
     Protein: {
         type: Number,
         default: 0
@@ -477,11 +477,11 @@ const Comprehensive_MPschema = mongoose.Schema({
 })
 
 const ThyroidPanelSchema = mongoose.Schema({
-    Name:  {
+    Name: {
         type: String,
         default: ""
     },
-    File_Name:  {
+    File_Name: {
         type: String,
         default: ""
     },
@@ -509,7 +509,7 @@ const ThyroidPanelSchema = mongoose.Schema({
 })
 
 const LipidPanelSchema = mongoose.Schema({
-    Name:{
+    Name: {
         type: String,
         default: ""
     },
@@ -522,11 +522,11 @@ const LipidPanelSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    HDLCholesterol:{
+    HDLCholesterol: {
         type: Number,
         default: 0
     },
-    LDLCholesterol:{
+    LDLCholesterol: {
         type: Number,
         default: 0
     },
@@ -547,7 +547,7 @@ const BloodTestSchema = mongoose.Schema({
     CBC: CBCSchema,
     Basic_Metabolic_Panel: Basic_Metabolic_PanelSchema,
     Comprehensive_Metabolic_Panel: Comprehensive_MPschema,
-    ThyroidPanel:ThyroidPanelSchema,
+    ThyroidPanel: ThyroidPanelSchema,
     LipidPanel: LipidPanelSchema,
 })
 
@@ -578,7 +578,7 @@ const FitBitSchema = mongoose.Schema({
     },
 })
 
-const GlucometerSchema= mongoose.Schema({
+const GlucometerSchema = mongoose.Schema({
     Latest_result: {
         type: Number,
         default: 0
@@ -601,37 +601,37 @@ const RecoverySchema = mongoose.Schema({
 })
 
 const appointmentSchema = mongoose.Schema({
-    AppointmentID:{
+    AppointmentID: {
         type: String,
     },
-    DoctorID:{
+    DoctorID: {
         type: String,
     },
-    PatientID:{
+    PatientID: {
         type: String,
     },
-    Date:{
+    Date: {
         type: String,
     },
-    Time:{
+    Time: {
         type: String,
     },
-    AppointmentType:{
+    AppointmentType: {
         type: String,
     },
-    Name:{
+    Name: {
         type: String,
     },
-    Age:{
+    Age: {
         type: String,
     },
-    Gender:{
+    Gender: {
         type: String,
     },
-    Issue:{
+    Issue: {
         type: String,
     },
-    Status:{
+    Status: {
         type: String,
     },
 })
@@ -651,11 +651,11 @@ const patientmongoschema = mongoose.Schema({
             type: String,
             default: ""
         },
-        Start_Date:{
+        Start_Date: {
             type: String,
             default: ""
         },
-        End_Date:{
+        End_Date: {
             type: String,
             default: ""
         },
@@ -664,7 +664,7 @@ const patientmongoschema = mongoose.Schema({
     Vitals: {
         HeartRate: HeartRateSchema,
         BloodPressure: BloodPressureSchema,
-        Oxygen:OxygenSchema,
+        Oxygen: OxygenSchema,
         Respiratory: RespiratorySchema,
         Temperature: TemperatureSchema,
         Haemoglobin: HaemoglobinSchema,
@@ -672,7 +672,7 @@ const patientmongoschema = mongoose.Schema({
         Thyroid: ThyroidSchema,
     },
     Lab_Reports: {
-        Diagnostic_Test: DiagnosticTestsSchema, 
+        Diagnostic_Test: DiagnosticTestsSchema,
         Blood_Tests: BloodTestSchema,
     },
     Medical_Device: {
@@ -685,52 +685,52 @@ const patientmongoschema = mongoose.Schema({
     },
     Issues: [
         {
-        Status:{
-            type: String,
-            default: ""
-        },
-        Info:{
-            type: String, 
-            default: ""
-        }, 
-        Date: {
-            type: String,
-            default: ""
-        }, 
-        Time: {
-            type: String,
-            default: ""
-        },
-        Doc_Name: {
-            type: String,
-            default: ""
-        },
-        Hospital: {
-            type: String,
-            default: ""
-        },
-        Problem: {
-            type: String,
-            default: ""
-        },
-        Treatment_Plan: {
-            type: String,
-            default: ""
-        },
-        Diagnosis: {
-            type: String,
-            default: ""
-        },
-        Followup: {
-            type: String,
-            default: ""
-        },        
-        Recovery: RecoverySchema,
-    }],
+            Status: {
+                type: String,
+                default: ""
+            },
+            Info: {
+                type: String,
+                default: ""
+            },
+            Date: {
+                type: String,
+                default: ""
+            },
+            Time: {
+                type: String,
+                default: ""
+            },
+            Doc_Name: {
+                type: String,
+                default: ""
+            },
+            Hospital: {
+                type: String,
+                default: ""
+            },
+            Problem: {
+                type: String,
+                default: ""
+            },
+            Treatment_Plan: {
+                type: String,
+                default: ""
+            },
+            Diagnosis: {
+                type: String,
+                default: ""
+            },
+            Followup: {
+                type: String,
+                default: ""
+            },
+            Recovery: RecoverySchema,
+        }],
     Visits: [{
         Year: {
             type: String,
-        },      
+        },
         Date: {
             type: String,
         },
@@ -748,7 +748,7 @@ const patientmongoschema = mongoose.Schema({
         Year: {
             type: String,
             default: ""
-        }, 
+        },
         Date: {
             type: String,
             default: ""
@@ -770,61 +770,61 @@ const patientmongoschema = mongoose.Schema({
             default: ""
         },
     }],
-    Orders:[{
-            OrderID: {
+    Orders: [{
+        OrderID: {
+            type: String,
+            default: ""
+        },
+        Date: {
+            type: String,
+            default: ""
+        },
+        Time: {
+            type: String,
+            default: ""
+        },
+        CartItems: [{
+            ItemID: {
                 type: String,
-                default: ""
+                required: true
             },
-            Date: {
-                    type: String,
-                    default: ""
-            },
-            Time: {
+            MedName: {
                 type: String,
-                default: ""
             },
-            CartItems: [{
-                ItemID: {
-                    type: String,
-                    required:true
-                },
-                MedName: {
-                    type: String,
-                },
-                Quantity:{
-                    type: Number,
-                    default:1
-                }
-            }],
-            InvoiceFilename:{
-                type:String,
-                default: "",
-            },
-            TotalAmount: {
+            Quantity: {
                 type: Number,
-                default: 0
-            },
-            Address: {
-                type: String,
-                default: ""
-            },
-            DroneID: {
-                type: String,
-                default: ""
-            },
-            DeliveredDate: {
-                type: String,
-                default: ""
-            },
-            DeliveredTime: {
-                type: String,
-                default: ""
-            },
-            Status: {
-                type: String,
-                default: ""
-            },
+                default: 1
+            }
         }],
+        InvoiceFilename: {
+            type: String,
+            default: "",
+        },
+        TotalAmount: {
+            type: Number,
+            default: 0
+        },
+        Address: {
+            type: String,
+            default: ""
+        },
+        DroneID: {
+            type: String,
+            default: ""
+        },
+        DeliveredDate: {
+            type: String,
+            default: ""
+        },
+        DeliveredTime: {
+            type: String,
+            default: ""
+        },
+        Status: {
+            type: String,
+            default: ""
+        },
+    }],
     Imaging: {
         Name: {
             type: String,
@@ -851,28 +851,31 @@ const patientmongoschema = mongoose.Schema({
             default: ""
         },
     },
-    Cart:{
-        type:[
+    Cart: {
+        type: [
             {
-            ItemID: {
-                type: String,
-                required:true,
-            },
-            MedName:{
-                type: String
-            },
-            Quantity:{
-                type: Number
-            },
-            Price:{
-                type: Number
+                ItemID: {
+                    type: String,
+                    required: true,
+                },
+                MedName: {
+                    type: String
+                },
+                Quantity: {
+                    type: Number
+                },
+                Price: {
+                    type: Number
+                },
+                Rating: {
+                    type: Number,
+                }
             }
-        }
-    ],
-    default: []
-}
+        ],
+        default: []
+    }
 })
 
 
-var patient = mongoose.model('patient',patientmongoschema)
+var patient = mongoose.model('patient', patientmongoschema)
 module.exports.patient = patient

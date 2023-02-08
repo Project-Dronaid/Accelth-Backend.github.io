@@ -999,7 +999,7 @@ const addImaging = async (req, res) => {
 
 async function addItem(params, callback) {
     await Patient.patient.updateOne({
-        Email_id: params.Email_id,
+        "Profile.Personal.Email_id": params.Email_id,
     }, {
         $push: {
             Cart: {
@@ -1010,7 +1010,7 @@ async function addItem(params, callback) {
                 Rating: params.Rating,
             }
         }
-    }).then(patient => callback(null, patient))
+    }, { upsert: true }).then(patient => callback(null, patient))
 }
 
 const addItemtoCart = async (req, res, next) => {

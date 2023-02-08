@@ -1046,7 +1046,7 @@ const ChangeQuantity = async (req, res) => {
     const { Email_id } = req.params
     if (Quantity == 0) {
         await Patient.patient.updateOne({
-            Email_id: Email_id,
+            "Profile.Personal.Email_id": Email_id,
         }, {
             $pull: {
                 Cart: {
@@ -1062,7 +1062,7 @@ const ChangeQuantity = async (req, res) => {
     else {
         await Patient.patient.updateOne(
             {
-                Email_id: Email_id,
+                "Profile.Personal.Email_id": Email_id,
                 Cart: { $elemMatch: { ItemID: ItemID } }
             },
             { $set: { "Cart.$.Quantity": Quantity } }

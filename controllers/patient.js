@@ -8,6 +8,7 @@ const { param } = require('../routes/patientroute')
 const exp = require('constants')
 var moment = require('moment')
 const MedItem = require('../models/items')
+const QRCode = require('qrcode')
 
 // const multer = require("multer");
 // const {GridFsStorage} = require("multer-gridfs-storage");
@@ -110,6 +111,11 @@ const registerPatient = async (req, res) => {
 
 const loginPatient = async (req, res) => {
     const { Email_id, Password } = req.body
+    try{
+        console.log(await QRCode.toDataURL("hhttp://8be6-45-112-144-67.ngrok.io/patient/getasinglepatient/"+Email_id))
+    }catch(err){
+        console.log(err)
+    }
     if (!Email_id || !Password) {
         return res.status(400).json({ Message: "Email_id or Password not present" });
     }

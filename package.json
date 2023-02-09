@@ -27,6 +27,7 @@
     "node-schedule": "^2.1.1",
     "nodemon": "^2.0.20",
     "otp-generator": "^4.0.0",
+    "qrcode": "^1.5.1",
     "react-scripts": "^5.0.1",
     "run": "^1.4.0"
   }

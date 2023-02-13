@@ -392,7 +392,7 @@ const OrderPlace = async (req, res) => {
     var hour = TIME.split(':')[0]
     var minute = TIME.split(':')[1]
     var seconds = TIME.split(':')[2].split(' ')[0]
-    const { OrderID, Date, Time, CartItems, InvoiceFilename, TotalAmount, Address, DroneID,
+    const {CartItems, InvoiceFilename, TotalAmount, Address, DroneID,
         DeliveredDate, DeliveredTime, Status } = req.body
     const { Email_id } = req.params
     await Patient.patient.updateOne({

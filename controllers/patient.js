@@ -440,6 +440,7 @@ const OrderPlace = async (req, res) => {
             });
         })
         .catch((error) => res.status(400).json(error.message));
+    await clearCart(req, res);
 }
 
 const getAllPatients = async (req, res) => {
@@ -1100,6 +1101,16 @@ const ChangeQuantity = async (req, res) => {
     }
 }
 
+const clearCart = async (req, res) => {
+    const { Email_id } = req.params;
+    await Patient.patient
+        .updateOne(
+            {
+                'Profile.Personal.Email_id': Email_id,
+            },
+            { Cart: [] }
+        );
+};
 
 
 

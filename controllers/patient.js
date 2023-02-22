@@ -392,34 +392,54 @@ const OrderPlace = async (req, res) => {
     var hour = TIME.split(':')[0]
     var minute = TIME.split(':')[1]
     var seconds = TIME.split(':')[2].split(' ')[0]
-    const {CartItems, InvoiceFilename, TotalAmount, Address, DroneID,
+    const {CartItems, TotalAmount, Address, DroneID,
         DeliveredDate, DeliveredTime, Status } = req.body
     const { Email_id } = req.params
-    await Patient.patient.updateOne({
-        "Profile.Personal.Email_id": Email_id,
-    }, {
-        $push: {
-            Orders: {
-                OrderID: "ODR" + year + month + date + hour + minute + seconds,
-                Date: DATE,
-                Time: ODRTIME,
-                CartItems: CartItems,
-                InvoiceFilename: InvoiceFilename,
-                TotalAmount: TotalAmount,
-                Address: Address,
-                DroneID: DroneID,
-                DeliveredDate: DeliveredDate,
-                DeliveredTime: DeliveredTime,
-                Status: Status,
-            }
-        }
-    }, { upsert: true }
-    ).then(patient => {
-        res.status(200).json({
-            Message: "Congratulations! Order Placed",
-            Patient: patient
+    await Patient.patient
+        .updateOne(
+            {
+                'Profile.Personal.Email_id': Email_id,
+            },
+            {
+                $push: {
+                    Orders: {
+                        OrderID:
+                            'ODR' +
+                            year +
+                            month +
+                            date +
+                            hour +
+                            minute +
+                            seconds,
+                        Date: DATE,
+                        Time: ODRTIME,
+                        CartItems: CartItems,
+                        InvoiceFilename:
+                            'INV' +
+                            year +
+                            month +
+                            date +
+                            hour +
+                            minute +
+                            seconds,
+                        TotalAmount: TotalAmount,
+                        Address: Address,
+                        DroneID: DroneID,
+                        DeliveredDate: DeliveredDate,
+                        DeliveredTime: DeliveredTime,
+                        Status: Status,
+                    },
+                },
+            },
+            { upsert: true }
+        )
+        .then((patient) => {
+            res.status(200).json({
+                Message: 'Congratulations! Order Placed',
+                Patient: patient,
+            });
         })
-    }).catch((error) => res.status(400).json(error.message))
+        .catch((error) => res.status(400).json(error.message));
 }
 
 const getAllPatients = async (req, res) => {

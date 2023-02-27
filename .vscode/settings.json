@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/44a65808-03c3-4a98-a3ae-3ce4b0e86cc4/AppServices/subscriptions/44a65808-03c3-4a98-a3ae-3ce4b0e86cc4/resourceGroups/AA-IT-Mobile_Applications-Android/providers/Microsoft.Web/sites/xtr-aa-dev-002",
+    "appService.deploySubpath": "."
+}

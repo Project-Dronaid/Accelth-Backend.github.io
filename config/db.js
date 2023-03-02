@@ -6,7 +6,7 @@ let gfs
 
 const connectDB = async () => {
     try{
-        mongoose.connect(dbconfig.database,{
+        mongoose.connect(dbconfig.DATABASE_URL,{
             useNewUrlParser : true,
             useUnifiedTopology: true,
         })

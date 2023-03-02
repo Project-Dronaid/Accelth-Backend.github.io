@@ -12,7 +12,7 @@ const mongoose = require('mongoose')
 const { response } = require('express')
 const Patient = require('../models/patient')
 let gfs
-mongoose.connect(dbconfig.database,{
+mongoose.connect(dbconfig.DATABASE_URL,{
     useNewUrlParser : true,
     useUnifiedTopology: true,
 })
@@ -22,7 +22,7 @@ con.on('open',()=> {
 })
 
 const storage = new GridFsStorage({
-    url: dbconfig.database,
+    url: dbconfig.DATABASE_URL,
     file: (req,file,cb)=>{
         return new Promise((resolve,reject)=>{
             crypto.randomBytes(16,(err,buf)=>{

@@ -11,6 +11,7 @@ const Grid = require('gridfs-stream')
 const mongoose = require('mongoose')
 const { response } = require('express')
 const Patient = require('../models/patient')
+const { resolve } = require('path')
 let gfs
 mongoose.connect(dbconfig.DATABASE_URL,{
     useNewUrlParser : true,
@@ -116,15 +117,90 @@ router.get('/fileshow/:filename',(req,res)=>{
                 message:'No such file available',
             })
         }
-        // if(files[0].contentType==='image/jpeg'|| files[0].contentType==='image/png'|| files[0].contentType==='image/svg+xml'){
-        //     gfs.openDownloadStreamByName(req.params.filename).pipe(res)
-        // }else{
-        //     res.status(404).json({
-        //         err: "Not an image"
-        //     })
-        // }
         gfs.openDownloadStreamByName(req.params.filename).pipe(res)
     })
 })
+const Ongoing_TreatmentStorage = new GridFsStorage({
+    url: dbconfig.DATABASE_URL,
+    file: (req,file,cb)=>{
+        return new Promise((resolve,reject)=>{
+            crypto.randomBytes(16,(err,buf)=>{
+                if(err){
+                    return reject(err)
+                }
+                const filename = 'OngoingTreatment(' + req.params.Email_id + '_' + file.originalname + ")"
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads',
+                }
+                resolve(fileInfo)
+            });
+        });
+    }
+})
+const uploadOngoing_Treatment = multer({storage:Ongoing_TreatmentStorage})
+
+router.post('/upload/ongoingTreatment/:Email_id', uploadOngoing_Treatment.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file: req.file,
+        message: "Ongoing Treatment Prescription Uploaded Successfully"
+    })
+})
+
+const VitalStorage = new GridFsStorage({
+    url: dbconfig.DATABASE_URL,
+    file: (req,file,cb)=>{
+        return new Promise((resolve,reject)=>{
+            crypto.randomBytes(16,(err,buf)=>{
+                if(err){
+                    return reject(err)
+                }
+                const filename = 'Vitals(' + req.params.Email_id + '_' + file.originalname + ')'
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads',
+                }
+                resolve(fileInfo)
+            });
+        });
+    }
+})
+const vitalsss = multer({storage:VitalStorage})
+
+router.post('/upload/vitals/:Email_id', vitalsss.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file: req.file,
+        message: "Vitals Prescription Uploaded Successfully"
+    })
+})
+
+const PrescriptionStorage = new GridFsStorage({
+    url: dbconfig.DATABASE_URL,
+    file: (req, file, cb) => {
+        return new Promise((resolve,reject)=>{
+            crypto.randomBytes(16,(err,buf)=>{
+                if(err){
+                    return reject(err)
+                }
+                const filename = 'Prescription(' + req.params.Email_id + '_' + file.originalname + ')'
+                const fileInfo = {
+                    filename: filename,
+                    bucketName : 'uploads'
+                }
+                resolve(fileInfo)
+            })
+        })
+    }
+})
+
+const prescriptionsss = multer({storage: PrescriptionStorage})
+
+router.post('/upload/prescription/:Email_id', prescriptionsss.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file: req.file,
+        message: "Prescription Uploaded Successfully"
+    })
+})
+
 
 module.exports = router

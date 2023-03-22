@@ -5,7 +5,7 @@ const connectDB = require('./config/db')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 require('dotenv').config()
-const port = 8000
+const port = process.env.port || 8000
 connectDB()
 const patientrouter = require('./routes/patientroute')
 const itemrouter = require('./routes/itemsroute')

@@ -9,6 +9,7 @@ const exp = require('constants')
 var moment = require('moment')
 const MedItem = require('../models/items')
 const QRCode = require('qrcode')
+const axios = require('axios')
 
 // const multer = require("multer");
 // const {GridFsStorage} = require("multer-gridfs-storage");
@@ -106,6 +107,12 @@ const registerPatient = async (req, res) => {
             Message: error.message
         })
         )
+    });
+    const data = 'https://tqbm2dzy21.execute-api.us-west-2.amazonaws.com/patient/getasinglepatient/' + Email_id; // Replace this with the URL of your API
+    const filePath = './' + Email_id + '_qr-code.png'; // Replace this with the path where you want to save the QR code
+    QRCode.toFile(filePath, data, function (err) {
+        if (err) throw err;
+        console.log('QR code saved to', filePath);
     });
 }
 
@@ -392,7 +399,7 @@ const OrderPlace = async (req, res) => {
     var hour = TIME.split(':')[0]
     var minute = TIME.split(':')[1]
     var seconds = TIME.split(':')[2].split(' ')[0]
-    const {CartItems, TotalAmount, Address, DroneID,
+    const { CartItems, TotalAmount, Address, DroneID,
         DeliveredDate, DeliveredTime, Status } = req.body
     const { Email_id } = req.params
     await Patient.patient
@@ -1112,9 +1119,115 @@ const clearCart = async (req, res) => {
         );
 };
 
+async function getBotResponse(param, callback) {
+    console.log(param.QueryMess)
+    let data = JSON.stringify({
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {
+                "role": "user",
+                "content": param.QueryMess,
+            }
+        ]
+    });
+    let config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: 'https://api.openai.com/v1/chat/completions',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer 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'
+        },
+        data: data
+    };
+    axios.request(config)
+        .then(async (response) => {
+            const ans = {
+                "Reply": response.data.choices[0].message.content,
+                "Time": param.Time
+            }
+            console.log(JSON.stringify(response.data.choices[0].message.content));
+            await Patient.patient.updateOne({
+                "Profile.Personal.Email_id": param.Email_id,
+            }, {
+                $push: {
+                    Chat: {
+                        Date: param.Date,
+                        Time: param.Time,
+                        TextMessage: response.data.choices[0].message.content,
+                        Sender: param.Sender,
+                    }
+                }
+            }, { upsert: true }).then(patient => callback(null, ans, patient))
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+}
+
+const UserMessageSent = async (req, res) => {
+    var DATE = moment().format('L')
+    var TIME = moment().format('LTS')
+    var year = DATE.split('/')[2]
+    var month = DATE.split('/')[0]
+    var date = DATE.split('/')[1]
+    var hour = TIME.split(':')[0]
+    var minute = TIME.split(':')[1]
+    var seconds = TIME.split(':')[2].split(' ')[0]
+    const { Email_id } = req.params;
+    const { TextMessage } = req.body;
+    console.log(TextMessage);
+    try {
+            await Patient.patient.updateOne({
+                "Profile.Personal.Email_id": Email_id
+            }, {
+                $push: {
+                    Chat: {
+                        Date: date + "/" + month + "/" + year,
+                        Time: hour + ":" + minute + ":" + seconds,
+                        TextMessage: TextMessage,
+                        Sender: "User"
+                    }
+                }
+            }, { upsert: true }
+            )
+            var DATE = moment().format('L')
+            var TIME = moment().format('LTS')
+            var year = DATE.split('/')[2]
+            var month = DATE.split('/')[0]
+            var date = DATE.split('/')[1]
+            var hour = TIME.split(':')[0]
+            var minute = TIME.split(':')[1]
+            var seconds = TIME.split(':')[2].split(' ')[0]
+            paramData = {
+                "Email_id": Email_id,
+                "Date": date + "/" + month + "/" + year,
+                "Time": hour + ":" + minute + ":" + seconds,
+                "Sender": "Bot",
+                "QueryMess": TextMessage,
+            }
+            console.log(TextMessage)
+            getBotResponse(paramData, (error, ans, results) => {
+                if (error)
+                return res.status(400).json({
+                    message: "Fail",
+                    data: results,
+                    ans: ans
+                })
+                return res.status(200).send({
+                    message: "Success",
+                    data: results,
+                    ans: ans
+                })
+            })
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
 
 
 
+module.exports.UserMessageSent = UserMessageSent
 module.exports.ChangeQuantity = ChangeQuantity
 module.exports.addItemtoCart = addItemtoCart
 module.exports.addImaging = addImaging

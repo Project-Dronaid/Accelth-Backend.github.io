@@ -202,5 +202,89 @@ router.post('/upload/prescription/:Email_id', prescriptionsss.single('file'),asy
     })
 })
 
+const LabReportStorage = new GridFsStorage({
+    url: dbconfig.DATABASE_URL,
+    file: (req, file, cb) => {
+        return new Promise((resolve,reject)=>{
+            crypto.randomBytes(16,(err,buf)=>{
+                if(err){
+                    return reject(err)
+                }
+                const filename = 'LabReport(' + req.params.Email_id + '_' + file.originalname + ')'
+                const fileInfo = {
+                    filename: filename,
+                    bucketName : 'uploads'
+                }
+                resolve(fileInfo)
+            })
+        })
+    }
+})
+
+const labreportsss = multer({storage: LabReportStorage})
+
+router.post('/upload/labreports/:Email_id', labreportsss.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file: req.file,
+        message: "Lab Report Uploaded Successfully"
+    })
+})
+
+const XRAYStorage = new GridFsStorage({
+    url: dbconfig.DATABASE_URL,
+    file: (req, file, cb) => {
+        return new Promise((resolve,reject)=>{
+            crypto.randomBytes(16,(err,buf)=>{
+                if(err){
+                    return reject(err)
+                }
+                const filename = 'X-RAY(' + req.params.Email_id + '_' + file.originalname + ')'
+                const fileInfo = {
+                    filename: filename,
+                    bucketName : 'uploads'
+                }
+                resolve(fileInfo)
+            })
+        })
+    }
+})
+
+const xrayreportsss = multer({storage: XRAYStorage})
+
+router.post('/upload/xray/:Email_id', xrayreportsss.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file: req.file,
+        message: "X-Ray Report Uploaded Successfully"
+    })
+})
+
+const MedicationPrescriptionStorage = new GridFsStorage({
+    url: dbconfig.DATABASE_URL,
+    file: (req, file, cb) => {
+        return new Promise((resolve,reject)=>{
+            crypto.randomBytes(16,(err,buf)=>{
+                if(err){
+                    return reject(err)
+                }
+                const filename = 'MedicationPrescription(' + req.params.Email_id + '_' + file.originalname + ')'
+                const fileInfo = {
+                    filename: filename,
+                    bucketName : 'uploads'
+                }
+                resolve(fileInfo)
+            })
+        })
+    }
+})
+
+const medicationprescriptionsss = multer({storage: MedicationPrescriptionStorage})
+
+router.post('/upload/medicationprescription/:Email_id', medicationprescriptionsss.single('file'),async(req,res)=>{
+    res.status(200).json({
+        file: req.file,
+        message: "Medication Uploaded Successfully"
+    })
+})
+
 
 module.exports = router

@@ -873,6 +873,26 @@ const patientmongoschema = mongoose.Schema({
             }
         ],
         default: []
+    },
+    Chat: {
+        type: [
+            {
+                Date: {
+                    type: String
+                },
+                Time: {
+                    type: String,
+                },
+                TextMessage: {
+                    type: String,
+                    required: true,
+                },
+                Sender: {
+                    type: String,
+                }
+            }
+        ],
+        default: []
     }
 })
 

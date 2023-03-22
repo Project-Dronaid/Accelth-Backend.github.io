@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 
+router.post('/SendMessageChatbot/:Email_id',patientroute.UserMessageSent)
 router.post('/sendOTP/:Email_id',patientroute.sendOTP)
 router.post('/verifyOtp/:Email_id',patientroute.verifyOtp)
 router.get('/getAllPatients',patientroute.getAllPatients)

@@ -1120,7 +1120,7 @@ const clearCart = async (req, res) => {
 };
 
 async function getBotResponse(param, callback) {
-    console.log(param.QueryMess)
+    // console.log(param.QueryMess)
     let data = JSON.stringify({
         "model": "gpt-3.5-turbo",
         "messages": [
@@ -1136,7 +1136,7 @@ async function getBotResponse(param, callback) {
         url: 'https://api.openai.com/v1/chat/completions',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer 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'
         },
         data: data
     };
@@ -1146,7 +1146,7 @@ async function getBotResponse(param, callback) {
                 "Reply": response.data.choices[0].message.content,
                 "Time": param.Time
             }
-            console.log(JSON.stringify(response.data.choices[0].message.content));
+            // console.log(JSON.stringify(response.data.choices[0].message.content));
             await Patient.patient.updateOne({
                 "Profile.Personal.Email_id": param.Email_id,
             }, {
@@ -1176,7 +1176,7 @@ const UserMessageSent = async (req, res) => {
     var seconds = TIME.split(':')[2].split(' ')[0]
     const { Email_id } = req.params;
     const { TextMessage } = req.body;
-    console.log(TextMessage);
+    // console.log(TextMessage);
     try {
         await Patient.patient.updateOne({
             "Profile.Personal.Email_id": Email_id
@@ -1206,7 +1206,7 @@ const UserMessageSent = async (req, res) => {
             "Sender": "Bot",
             "QueryMess": TextMessage,
         }
-        console.log(TextMessage)
+        // console.log(TextMessage)
         getBotResponse(paramData, (error, ans, results) => {
             if (error)
                 return res.status(400).json({

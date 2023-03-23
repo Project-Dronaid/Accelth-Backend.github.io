@@ -15,7 +15,7 @@ const axios = require('axios')
 // const {GridFsStorage} = require("multer-gridfs-storage");
 
 const changePassword = async (req, res) => {
-    const { Email_id, Password } = req.body
+    const { Contact_Number, Password } = req.body
     if (Password.length <= 8) {
         return res.status(400).json({
             message: "Password must be atleast 8 characters long"
@@ -24,7 +24,7 @@ const changePassword = async (req, res) => {
     bcrypt.hash(Password, 10).then(async (hash) => {
         try {
             const patient = await Patient.patient.findOne({
-                "Profile.Personal.Email_id": Email_id
+                "Profile.Personal.Contact_Number": Contact_Number
             })
             bcrypt.compare(Password, patient.Profile.Personal.Password).then(function (result) {
                 if (result)
@@ -39,7 +39,7 @@ const changePassword = async (req, res) => {
             })
         }
         await Patient.patient.updateOne({
-            "Profile.Personal.Email_id": Email_id
+            "Profile.Personal.Contact_Number": Contact_Number
         }, {
             "Profile.Personal.Password": hash,
         }).then(Patient =>
@@ -1178,48 +1178,48 @@ const UserMessageSent = async (req, res) => {
     const { TextMessage } = req.body;
     console.log(TextMessage);
     try {
-            await Patient.patient.updateOne({
-                "Profile.Personal.Email_id": Email_id
-            }, {
-                $push: {
-                    Chat: {
-                        Date: date + "/" + month + "/" + year,
-                        Time: hour + ":" + minute + ":" + seconds,
-                        TextMessage: TextMessage,
-                        Sender: "User"
-                    }
+        await Patient.patient.updateOne({
+            "Profile.Personal.Email_id": Email_id
+        }, {
+            $push: {
+                Chat: {
+                    Date: date + "/" + month + "/" + year,
+                    Time: hour + ":" + minute + ":" + seconds,
+                    TextMessage: TextMessage,
+                    Sender: "User"
                 }
-            }, { upsert: true }
-            )
-            var DATE = moment().format('L')
-            var TIME = moment().format('LTS')
-            var year = DATE.split('/')[2]
-            var month = DATE.split('/')[0]
-            var date = DATE.split('/')[1]
-            var hour = TIME.split(':')[0]
-            var minute = TIME.split(':')[1]
-            var seconds = TIME.split(':')[2].split(' ')[0]
-            paramData = {
-                "Email_id": Email_id,
-                "Date": date + "/" + month + "/" + year,
-                "Time": hour + ":" + minute + ":" + seconds,
-                "Sender": "Bot",
-                "QueryMess": TextMessage,
             }
-            console.log(TextMessage)
-            getBotResponse(paramData, (error, ans, results) => {
-                if (error)
+        }, { upsert: true }
+        )
+        var DATE = moment().format('L')
+        var TIME = moment().format('LTS')
+        var year = DATE.split('/')[2]
+        var month = DATE.split('/')[0]
+        var date = DATE.split('/')[1]
+        var hour = TIME.split(':')[0]
+        var minute = TIME.split(':')[1]
+        var seconds = TIME.split(':')[2].split(' ')[0]
+        paramData = {
+            "Email_id": Email_id,
+            "Date": date + "/" + month + "/" + year,
+            "Time": hour + ":" + minute + ":" + seconds,
+            "Sender": "Bot",
+            "QueryMess": TextMessage,
+        }
+        console.log(TextMessage)
+        getBotResponse(paramData, (error, ans, results) => {
+            if (error)
                 return res.status(400).json({
                     message: "Fail",
                     data: results,
                     ans: ans
                 })
-                return res.status(200).send({
-                    message: "Success",
-                    data: results,
-                    ans: ans
-                })
+            return res.status(200).send({
+                message: "Success",
+                data: results,
+                ans: ans
             })
+        })
     } catch (error) {
         res.status(400).json(error)
     }

@@ -73,7 +73,7 @@ const deleteApatient = async (req, res) => {
 }
 
 const registerPatient = async (req, res) => {
-    const { Name, Contact_Number, Email_id, Password, DateofBirth, Gender, Bloodgroup, Height, Weight, Allergies, Blindcondition } = req.body
+    const { Name, Contact_Number, Email_id, Password, DateofBirth, Gender, Bloodgroup, Height, Weight, Allergies, Blindcondition, Activity} = req.body
     if (Password.length <= 8) {
         return res.status(400).json({
             message: "Password must be atleast 8 characters long"
@@ -97,6 +97,9 @@ const registerPatient = async (req, res) => {
                     Allergies: Allergies,
                     Blindcondition: Blindcondition,
                 },
+                Lifestyle: {
+                    Activity: Activity
+                }
             },
         }).then(Patient =>
             res.status(200).json({
@@ -108,12 +111,12 @@ const registerPatient = async (req, res) => {
         })
         )
     });
-    const data = 'https://tqbm2dzy21.execute-api.us-west-2.amazonaws.com/patient/getasinglepatient/' + Email_id; // Replace this with the URL of your API
-    const filePath = './' + Email_id + '_qr-code.png'; // Replace this with the path where you want to save the QR code
-    QRCode.toFile(filePath, data, function (err) {
-        if (err) throw err;
-        console.log('QR code saved to', filePath);
-    });
+    // const data = 'https://tqbm2dzy21.execute-api.us-west-2.amazonaws.com/patient/getasinglepatient/' + Email_id; // Replace this with the URL of your API
+    // const filePath = './' + Email_id + '_qr-code.png'; // Replace this with the path where you want to save the QR code
+    // QRCode.toFile(filePath, data, function (err) {
+    //     if (err) throw err;
+    //     console.log('QR code saved to', filePath);
+    // });
 }
 
 const loginPatient = async (req, res) => {

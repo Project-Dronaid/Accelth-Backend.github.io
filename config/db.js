@@ -8,7 +8,6 @@ const connectDB = async () => {
     try{
         mongoose.connect(dbconfig.DATABASE_URL,{
             useNewUrlParser : true,
-            useUnifiedTopology: true,
         })
         const con = mongoose.connection
         con.on('open',()=> {

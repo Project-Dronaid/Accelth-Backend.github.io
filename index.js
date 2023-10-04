@@ -26,3 +26,4 @@ app.use('/appointment',appointmentrouter)
 app.listen(port,()=>{
     console.log('Server started on port '+port)
 })
+

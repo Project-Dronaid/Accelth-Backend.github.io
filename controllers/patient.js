@@ -898,6 +898,7 @@ const addLPReport = async (req, res) => {
 
 const getasinglepatient = async (req, res) => {
     const { Email_id } = req.params
+    console.log(req.Email_id)
     const patient = await Patient.patient.findOne({
         "Profile.Personal.Email_id": Email_id
     })

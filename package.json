@@ -22,7 +22,6 @@
     "method-override": "^3.0.0",
     "moment": "^2.29.4",
     "mongodb": "^6.1.0",
-    "mongoose": "^6.8.0",
     "msg91": "^2.0.4",
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2",
@@ -32,5 +31,8 @@
     "qrcode": "^1.5.1",
     "react-scripts": "^5.0.1",
     "run": "^1.4.0"
+  },
+  "devDependencies": {
+    "mongoose": "^7.6.0"
   }
 }
